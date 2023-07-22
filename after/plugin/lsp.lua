@@ -179,10 +179,10 @@ lsp.setup_nvim_cmp({
 lsp.set_preferences({
     suggest_lsp_servers = false,
     sign_icons = {
-        hint = "",
-        info = "",
-        warning = "",
-        error = "",
+        hint = "H",
+        info = "I",
+        warning = "W",
+        error = "E",
     }
 })
 
