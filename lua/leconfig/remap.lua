@@ -1,5 +1,4 @@
 vim.g.mapleader = " ";
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex);
 
 vim.keymap.set("n", "<C-w>", '<C-6>')
 vim.keymap.set("n", "<C-s>", ":w<cr>");
@@ -67,6 +66,7 @@ vim.keymap.set("i", "<A-k>", "<Esc>:m .+1<CR>==gi");
 vim.keymap.set("i", "<A-j>", "<Esc>:m .-2<CR>==gi");
 
 
+-- copy pasting + use console logs / errors
 vim.keymap.set("n", "<leader>p", "\"0p")
 vim.keymap.set("n", "<leader>P>", "\"0P")
 vim.keymap.set("n", "<leader>cl", "@l")
