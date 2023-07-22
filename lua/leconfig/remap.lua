@@ -1,5 +1,7 @@
 vim.g.mapleader = " ";
 
+vim.keymap.set("n", "<leader>Lc", "<cmd>edit ~/.config/nvim/init.lua<CR>");
+
 vim.keymap.set("n", "<C-w>", '<C-6>')
 vim.keymap.set("n", "<C-s>", ":w<cr>");
 vim.keymap.set("i", "<C-s>", "<ESC>:w<cr>a");

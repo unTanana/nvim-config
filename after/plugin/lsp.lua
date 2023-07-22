@@ -5,7 +5,6 @@ lsp.preset("recommended")
 lsp.ensure_installed({
     'tsserver',
     'rust_analyzer',
-    'eslint',
     'lua_ls',
 })
 
@@ -125,7 +124,6 @@ local has_words_before = function()
 end
 
 local cmp_mappings = lsp.defaults.cmp_mappings({
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
     ['<C-a>'] = cmp.mapping.confirm({ select = true }),
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-u>'] = cmp.mapping.scroll_docs(4),
@@ -189,8 +187,8 @@ lsp.set_preferences({
 lsp.on_attach(function(_, bufnr)
     local opts = { buffer = bufnr, remap = false }
     vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format)
-    vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-    vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+    vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, opts)
+    vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
 end)
 
 lsp.setup()
