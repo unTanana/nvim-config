@@ -86,4 +86,42 @@ return require('packer').startup(function(use)
         'jose-elias-alvarez/null-ls.nvim',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
+    use {
+        "windwp/nvim-ts-autotag",
+        config = function()
+            require("nvim-ts-autotag").setup({
+                enable = true,
+                enable_rename = true,
+                enable_close = true,
+                enable_close_on_slash = true,
+                filetypes = {
+                    'html', 'javascript', 'typescript', 'javascriptreact',
+                    'typescriptreact', 'svelte', 'vue', 'tsx',
+                    'jsx', 'rescript',
+                    'xml',
+                    'php',
+                    'markdown',
+                    'glimmer', 'handlebars', 'hbs', 'astro',
+                },
+                skip_tags = { 'area', 'base', 'br', 'col', 'command', 'embed', 'hr', 'img', 'slot',
+                    'input', 'keygen', 'link', 'meta', 'param', 'source', 'track', 'wbr', 'menuitem' }
+            })
+        end
+    }
+    use {
+        "nvim-treesitter/nvim-treesitter-refactor",
+        config = function()
+            require("nvim-treesitter.configs").setup({
+                refactor = {
+                    navigation = {
+                        enable = true,
+                        keymaps = {
+                            goto_next_usage = "<C-[>",
+                            goto_previous_usage = "<C-]>",
+                        },
+                    },
+                },
+            })
+        end,
+    }
 end)

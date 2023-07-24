@@ -47,7 +47,7 @@ vim.keymap.set("n", "<A-Right>", ":vertical resize +2<CR>");
 -- QuickFix
 vim.keymap.set("n", "]q", ":cnext<CR>");
 vim.keymap.set("n", "[q", ":cprev<CR>");
-vim.keymap.set("n",   "<C-q>" , ":call QuickFixToggle()<CR>");
+vim.keymap.set("n", "<C-q>", ":call QuickFixToggle()<CR>");
 
 -- Terminal window navigation
 vim.keymap.set("t", "<C-h>", "<C-\\><C-N><C-w>h");
@@ -60,12 +60,12 @@ vim.keymap.set("v", "<", "<gv");
 vim.keymap.set("v", ">", ">gv");
 
 -- Move current line / block with Alt-j/k ala vscode.
-vim.keymap.set("n", "<A-k>", ":m .+1<CR>==");
-vim.keymap.set("n", "<A-j>", ":m .-2<CR>==");
-vim.keymap.set("v", "<A-k>", ":m '>+1<CR>gv-gv");
-vim.keymap.set("v", "<A-j>", ":m '<-2<CR>gv-gv");
-vim.keymap.set("i", "<A-k>", "<Esc>:m .+1<CR>==gi");
-vim.keymap.set("i", "<A-j>", "<Esc>:m .-2<CR>==gi");
+vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { silent = true });
+vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { silent = true });
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv-gv", { silent = true });
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv-gv", { silent = true });
+vim.keymap.set("i", "<A-j>", "<Esc>:m .+1<CR>==gi", { silent = true });
+vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi", { silent = true });
 
 
 -- copy pasting + use console logs / errors

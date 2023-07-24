@@ -9,16 +9,16 @@ local function set_cursor_colors()
     vim.cmd('highlight CursorNormal guibg=#a9ff9f guifg=NONE')
     vim.cmd('highlight CursorInsert guibg=#ff5f5f guifg=NONE')
     vim.cmd('highlight CursorVisual guibg=#ffffff guifg=NONE')
-    -- vim.opt.guicursor = "n-v-c:CursorNormal,i:CursorInsert,v:CursorVisual"
-    vim.opt.guicursor = "n-v-c:block-CursorNormal,i-ci-ve:ver100-CursorInsert,v:CursorVisual"
+    -- vim.opt.guicursor = "n-v-c:CursorNormal,i:CursorInsert,v:CursorVisual" -- big red insert
+    vim.opt.guicursor = "n-v-c:block-CursorNormal,i-ci-ve:ver100-CursorInsert,v:CursorVisual" -- small red insert
 end
 
---  disable auto comment && colors + replace macro
+--  disable auto comment(disabled for now) && colors + replace macro
 autocmd("BufEnter", {
     group = LeGroup,
     pattern = { "*" },
     callback = function()
-        vim.opt.formatoptions = vim.opt.formatoptions - { "c", "r", "o" }
+        -- vim.opt.formatoptions = vim.opt.formatoptions - { "c", "r", "o" }
         set_cursor_colors()
         vim.fn.setreg('r', '*Ncgn')
     end,
