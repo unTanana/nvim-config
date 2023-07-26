@@ -1,6 +1,31 @@
+local function organize_imports()
+    -- get current file extension
+    local ext = vim.fn.expand("%:e")
+
+    -- if python
+    if ext == "py" then
+        -- run isort
+        vim.cmd("silent Isort")
+    end
+
+    if ext == "js" or ext == "ts" or ext == "jsx" or ext == "tsx" or ext == "astro" then
+        local params = {
+            command = "_typescript.organizeImports",
+            arguments = { vim.api.nvim_buf_get_name(0) },
+            title = ""
+        }
+        vim.lsp.buf.execute_command(params)
+    end
+end
+
+
+
 vim.g.mapleader = " ";
 
 vim.keymap.set("n", "<leader>Lc", "<cmd>edit ~/.config/nvim/init.lua<CR>");
+
+
+vim.keymap.set("n", "<leader>co", organize_imports);
 
 vim.keymap.set("n", "<C-w>", '<C-6>')
 vim.keymap.set("n", "<C-s>", ":w<cr>");

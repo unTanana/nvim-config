@@ -43,3 +43,6 @@ vim.keymap.set("n", "<leader>cd", "<cmd>Lspsaga peek_definition<CR>")
 vim.keymap.set("n", "<leader>cf", "<cmd>Lspsaga finder<CR>")
 vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>")
 vim.keymap.set("n", "<leader>ct", "<cmd>Lspsaga goto_type_definition<CR>")
+
+-- hack to enable goto_definition
+vim.cmd [[Lspsaga goto_definition]]
