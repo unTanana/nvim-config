@@ -50,6 +50,10 @@ vim.keymap.set("v", "<leader>p", "\"_dP");
 -- delete to _ registry
 vim.keymap.set("v", "<leader>d", "\"_d");
 vim.keymap.set("n", "<leader>d", "\"_d");
+vim.keymap.set("n", "<leader>cp", "\"0p");
+vim.keymap.set("n", "<leader>cP", "\"0P");
+vim.keymap.set("v", "<leader>cp", "\"0p");
+vim.keymap.set("v", "<leader>cP", "\"0P");
 
 -- Lsp Saga
 -- vim.keymap.set("n", "K", ":Lspsaga hover_doc<CR>");

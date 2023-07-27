@@ -34,7 +34,7 @@ require('lspsaga').setup({
 
 vim.keymap.set("n", "K", ":Lspsaga hover_doc<CR>")
 vim.keymap.set("n", "gs", ":Lspsaga signature_help<CR>")
-vim.keymap.set("n", "gd", ":Lspsaga goto_definition<CR>")
+vim.keymap.set("n", "gD", ":Lspsaga goto_definition<CR>")
 vim.keymap.set("n", "[e", ":Lspsaga diagnostic_jump_prev<CR>")
 vim.keymap.set("n", "]e", ":Lspsaga diagnostic_jump_next<CR>")
 
@@ -45,4 +45,4 @@ vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>")
 vim.keymap.set("n", "<leader>ct", "<cmd>Lspsaga goto_type_definition<CR>")
 
 -- hack to enable goto_definition
-vim.cmd [[Lspsaga goto_definition]]
+-- vim.cmd [[Lspsaga goto_definition]]
