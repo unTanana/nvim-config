@@ -99,7 +99,7 @@ require("nvim-tree").setup({
         },
         update_cwd = true,
         diagnostics = {
-            enable = true,
+            enable = false,
             show_on_dirs = false,
             icons = {
                 -- hint =  "",
@@ -128,7 +128,6 @@ require("nvim-tree").setup({
         },
         view = {
             width = 30,
-            hide_root_folder = false,
             side = "left",
             -- mappings = {
             --     custom_only = false,

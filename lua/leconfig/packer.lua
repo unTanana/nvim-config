@@ -127,4 +127,7 @@ return require('packer').startup(function(use)
     use {
         "windwp/nvim-autopairs",
     }
+    use {
+        "f-person/git-blame.nvim"
+    }
 end)
