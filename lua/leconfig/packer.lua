@@ -130,4 +130,10 @@ return require('packer').startup(function(use)
     use {
         "f-person/git-blame.nvim"
     }
+    use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
+    -- optional
+    use { 'junegunn/fzf', run = function()
+        vim.fn['fzf#install']()
+    end
+    }
 end)

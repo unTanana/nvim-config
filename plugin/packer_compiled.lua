@@ -102,6 +102,11 @@ _G.packer_plugins = {
     path = "/Users/cipriantanana/.local/share/nvim/site/pack/packer/start/copilot.lua",
     url = "https://github.com/zbirenbaum/copilot.lua"
   },
+  fzf = {
+    loaded = true,
+    path = "/Users/cipriantanana/.local/share/nvim/site/pack/packer/start/fzf",
+    url = "https://github.com/junegunn/fzf"
+  },
   ["git-blame.nvim"] = {
     loaded = true,
     path = "/Users/cipriantanana/.local/share/nvim/site/pack/packer/start/git-blame.nvim",
@@ -156,6 +161,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/cipriantanana/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
+  },
+  ["nvim-bqf"] = {
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/Users/cipriantanana/.local/share/nvim/site/pack/packer/opt/nvim-bqf",
+    url = "https://github.com/kevinhwang91/nvim-bqf"
   },
   ["nvim-bufdel"] = {
     loaded = true,
@@ -232,14 +244,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-ts-autotag
-time([[Config for nvim-ts-autotag]], true)
-try_loadstring("\27LJ\2\nì\3\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\14skip_tags\1\19\0\0\tarea\tbase\abr\bcol\fcommand\nembed\ahr\bimg\tslot\ninput\vkeygen\tlink\tmeta\nparam\vsource\ntrack\bwbr\rmenuitem\14filetypes\1\18\0\0\thtml\15javascript\15typescript\20javascriptreact\20typescriptreact\vsvelte\bvue\btsx\bjsx\rrescript\bxml\bphp\rmarkdown\fglimmer\15handlebars\bhbs\nastro\1\0\4\26enable_close_on_slash\2\17enable_close\2\18enable_rename\2\venable\2\nsetup\20nvim-ts-autotag\frequire\0", "config", "nvim-ts-autotag")
-time([[Config for nvim-ts-autotag]], false)
 -- Config for: nvim-treesitter-refactor
 time([[Config for nvim-treesitter-refactor]], true)
 try_loadstring("\27LJ\2\n¡\1\0\0\6\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\b\0005\3\6\0005\4\3\0005\5\4\0=\5\5\4=\4\a\3=\3\t\2B\0\2\1K\0\1\0\rrefactor\1\0\0\15navigation\1\0\0\fkeymaps\1\0\2\20goto_next_usage\n<C-[>\24goto_previous_usage\n<C-]>\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter-refactor")
 time([[Config for nvim-treesitter-refactor]], false)
+-- Config for: nvim-ts-autotag
+time([[Config for nvim-ts-autotag]], true)
+try_loadstring("\27LJ\2\nì\3\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\14skip_tags\1\19\0\0\tarea\tbase\abr\bcol\fcommand\nembed\ahr\bimg\tslot\ninput\vkeygen\tlink\tmeta\nparam\vsource\ntrack\bwbr\rmenuitem\14filetypes\1\18\0\0\thtml\15javascript\15typescript\20javascriptreact\20typescriptreact\vsvelte\bvue\btsx\bjsx\rrescript\bxml\bphp\rmarkdown\fglimmer\15handlebars\bhbs\nastro\1\0\4\26enable_close_on_slash\2\17enable_close\2\18enable_rename\2\venable\2\nsetup\20nvim-ts-autotag\frequire\0", "config", "nvim-ts-autotag")
+time([[Config for nvim-ts-autotag]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd copilot.lua ]]
@@ -249,6 +261,13 @@ vim.cmd [[ packadd copilot-cmp ]]
 try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\16copilot_cmp\frequire\0", "config", "copilot-cmp")
 
 time([[Sequenced loading]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType qf ++once lua require("packer.load")({'nvim-bqf'}, { ft = "qf" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
