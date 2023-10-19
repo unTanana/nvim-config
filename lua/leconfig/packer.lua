@@ -136,4 +136,5 @@ return require('packer').startup(function(use)
         vim.fn['fzf#install']()
     end
     }
+    use {'lukas-reineke/headlines.nvim'}
 end)

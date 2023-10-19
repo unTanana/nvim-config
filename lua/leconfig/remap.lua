@@ -41,6 +41,8 @@ vim.keymap.set("n", "n", "nzz")
 vim.keymap.set("i", "jk", "<ESC>");
 vim.keymap.set("n", "YY", "va{Vygv<ESC>")
 vim.keymap.set("n", "<leader>DD", 'vi{"_d')
+vim.keymap.set("n", "gI", ":vsplit | norm gi<CR>")
+vim.keymap.set("n", "gs", ":vsplit | norm gd<CR>")
 
 vim.keymap.set("n", "<leader>x", "<cmd>BufDel<CR>");
 vim.keymap.set("n", "<leader>h", "<cmd>nohlsearch<CR>");

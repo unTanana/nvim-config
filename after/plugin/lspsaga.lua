@@ -33,7 +33,6 @@ require('lspsaga').setup({
 
 
 vim.keymap.set("n", "K", ":Lspsaga hover_doc<CR>")
-vim.keymap.set("n", "gs", ":Lspsaga signature_help<CR>")
 vim.keymap.set("n", "gD", ":Lspsaga goto_definition<CR>")
 vim.keymap.set("n", "[e", ":Lspsaga diagnostic_jump_prev<CR>")
 vim.keymap.set("n", "]e", ":Lspsaga diagnostic_jump_next<CR>")
