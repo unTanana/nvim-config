@@ -31,7 +31,9 @@ autocmd("BufEnter", {
     callback = function()
         -- console log
         vim.fn.setreg('l', 'yiwoprint("jkpa", jkpa);jk')
+        vim.fn.setreg('L', 'yoprint("jkpa", jkpa);jk')
         vim.fn.setreg('k', 'yiwoprint("error -> jkpa", jkpa);jk')
+        vim.fn.setreg('K', 'yoprint("error -> jkpa", jkpa);jk')
     end,
 })
 
@@ -41,8 +43,11 @@ autocmd("BufEnter", {
     callback = function()
         -- console log and error
         vim.fn.setreg('l', 'yiwoconsole.log("jkpa", jkpa);jk')
+        vim.fn.setreg('L', 'y<ESC>oconsole.log("jkpa", jkpa);jk')
         vim.fn.setreg('o', 'yiwoconsole.debug("jkpa", jkpa);jk')
+        vim.fn.setreg('O', 'yoconsole.debug("jkpa", jkpa);jk')
         vim.fn.setreg('k', 'yiwoconsole.error("jkpa", jkpa);jk')
+        vim.fn.setreg('K', 'yoconsole.error("jkpa", jkpa);jk')
     end,
 })
 
@@ -52,7 +57,9 @@ autocmd("BufEnter", {
     callback = function()
         -- console log and error
         vim.fn.setreg('l', 'yiwoprint("jkpa", jkpa);jk')
+        vim.fn.setreg('L', 'yoprint("jkpa", jkpa);jk')
         vim.fn.setreg('k', 'yiwoprint("error -> jkpa", jkpa);jk')
+        vim.fn.setreg('K', 'yoprint("error -> jkpa", jkpa);jk')
     end,
 })
 
@@ -80,6 +87,7 @@ autocmd("BufEnter", {
         vim.keymap.set("n", "<leader>lb", "<cmd>!cargo build<CR>", { noremap = true, silent = true })
         vim.keymap.set("n", "<leader>lr", "<cmd>!cargo run<CR>", { noremap = true, silent = false })
         vim.fn.setreg('l', 'yiwoprintln!("{:?jkei, jkpA;jk')
+        vim.fn.setreg('L', 'yoprintln!("{:?jkei, jkpA;jk')
     end,
 })
 
@@ -109,7 +117,8 @@ autocmd("BufEnter", {
     pattern = "*.go",
     callback = function()
         vim.keymap.set("n", "<leader>lr", "<cmd>!go run %<CR>", { noremap = true, silent = false })
-        vim.fn.setreg('l', 'yiwofmt.Printf("jkpa %+vjkla, jkp')
+        vim.fn.setreg('l', 'yiwolog.Printf("jkpa %+vjkla, jkp')
+        vim.fn.setreg('L', 'yolog.Printf("jkpa %+vjkla, jkp')
         vim.fn.setreg('k', "ojkccif err != nil {\njkccreturn nil, err\n}jk")
     end,
 })
