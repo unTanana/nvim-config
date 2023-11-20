@@ -68,6 +68,9 @@ vim.keymap.set("v", "<leader>cP", "\"0P");
 vim.keymap.set("n", "c*", "*Ncgn");
 vim.keymap.set("n", "c#", "#NcgN");
 
+-- gitk
+vim.keymap.set("n", "<leader>cg", ":!gitk %<CR>");
+
 
 -- Resize with arrows
 vim.keymap.set("n", "<A-Up>", ":resize -2<CR>");
