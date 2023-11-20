@@ -131,3 +131,44 @@ autocmd("BufEnter", {
         vim.keymap.set("n", "<leader>lF", "<cmd>%!jq --tab<CR><cmd>w!<CR>", { noremap = true, silent = true })
     end,
 })
+
+--- FORMAT ON SAVE ----
+local function clear_augroup(name)
+    vim.schedule(function()
+        pcall(function()
+            vim.api.nvim_clear_autocmds { group = name }
+        end)
+    end)
+end
+
+
+local function enable_format_on_save()
+    vim.api.nvim_create_augroup("lsp_format_on_save", {})
+    vim.api.nvim_create_autocmd("BufWritePre", {
+        group = "lsp_format_on_save",
+        callback = function()
+            return vim.lsp.buf.format()
+        end,
+    })
+end
+
+local function disable_format_on_save()
+    clear_augroup "lsp_format_on_save"
+end
+
+function toggle_format_on_save()
+    local exists, autocmds = pcall(vim.api.nvim_get_autocmds, {
+        group = "lsp_format_on_save",
+        event = "BufWritePre",
+    })
+    if not exists or #autocmds == 0 then
+        enable_format_on_save()
+    else
+        disable_format_on_save()
+    end
+end
+
+vim.api.nvim_create_user_command("ToggleFormatOnSave", toggle_format_on_save, {})
+
+-- toggle format on save by default
+toggle_format_on_save();
