@@ -138,4 +138,5 @@ return require('packer').startup(function(use)
     }
     use { 'lukas-reineke/headlines.nvim' }
     use { 'mbbill/undotree' }
+    use({ "stevearc/oil.nvim" })
 end)

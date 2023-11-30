@@ -185,11 +185,17 @@ lsp.set_preferences({
     }
 })
 
+local function do_format()
+    local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+    vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
+    vim.lsp.buf.format()
+end
+
 lsp.on_attach(function(_, bufnr)
     local opts = { buffer = bufnr, remap = false }
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-    vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format() end, opts)
+    vim.keymap.set("n", "<leader>lf", do_format, opts)
     vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, opts)
     vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
 end)
