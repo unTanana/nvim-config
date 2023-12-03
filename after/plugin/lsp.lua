@@ -186,8 +186,8 @@ lsp.set_preferences({
 })
 
 local function do_format()
-    local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
-    vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
+    -- local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+    -- vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
     vim.lsp.buf.format()
 end
 
