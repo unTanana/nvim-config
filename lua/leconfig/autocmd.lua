@@ -1,3 +1,4 @@
+local format = require("leconfig.format")
 local augroup = vim.api.nvim_create_augroup
 local LeGroup = augroup('LeGroupName', {})
 
@@ -141,18 +142,11 @@ local function clear_augroup(name)
     end)
 end
 
-
-
-local function do_format()
-    -- local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
-    -- vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
-    return vim.lsp.buf.format()
-end
 local function enable_format_on_save()
     vim.api.nvim_create_augroup("lsp_format_on_save", {})
     vim.api.nvim_create_autocmd("BufWritePre", {
         group = "lsp_format_on_save",
-        callback = do_format
+        callback = format.do_format
     })
 end
 
@@ -175,4 +169,4 @@ end
 vim.api.nvim_create_user_command("ToggleFormatOnSave", toggle_format_on_save, {})
 
 -- toggle format on save by default
-toggle_format_on_save();
+-- toggle_format_on_save();

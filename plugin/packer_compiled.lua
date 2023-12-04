@@ -142,6 +142,11 @@ _G.packer_plugins = {
     path = "/Users/cipriantanana/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
     url = "https://github.com/glepnir/lspsaga.nvim"
   },
+  ["marks.nvim"] = {
+    loaded = true,
+    path = "/Users/cipriantanana/.local/share/nvim/site/pack/packer/start/marks.nvim",
+    url = "https://github.com/chentoast/marks.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/Users/cipriantanana/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
@@ -206,7 +211,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-treesitter/nvim-treesitter-refactor"
   },
   ["nvim-ts-autotag"] = {
-    config = { "\27LJ\2\n“\3\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\14skip_tags\1\19\0\0\tarea\tbase\abr\bcol\fcommand\nembed\ahr\bimg\tslot\ninput\vkeygen\tlink\tmeta\nparam\vsource\ntrack\bwbr\rmenuitem\14filetypes\1\18\0\0\thtml\15javascript\15typescript\20javascriptreact\20typescriptreact\vsvelte\bvue\btsx\bjsx\rrescript\bxml\bphp\rmarkdown\fglimmer\15handlebars\bhbs\nastro\1\0\4\26enable_close_on_slash\2\17enable_close\2\18enable_rename\2\venable\2\nsetup\20nvim-ts-autotag\frequire\0" },
+    config = { "\27LJ\2\n“\3\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\14skip_tags\1\19\0\0\tarea\tbase\abr\bcol\fcommand\nembed\ahr\bimg\tslot\ninput\vkeygen\tlink\tmeta\nparam\vsource\ntrack\bwbr\rmenuitem\14filetypes\1\18\0\0\thtml\15javascript\15typescript\20javascriptreact\20typescriptreact\vsvelte\bvue\btsx\bjsx\rrescript\bxml\bphp\rmarkdown\fglimmer\15handlebars\bhbs\nastro\1\0\4\17enable_close\2\18enable_rename\2\venable\2\26enable_close_on_slash\2\nsetup\20nvim-ts-autotag\frequire\0" },
     loaded = true,
     path = "/Users/cipriantanana/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
     url = "https://github.com/windwp/nvim-ts-autotag"
@@ -261,7 +266,7 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: nvim-ts-autotag
 time([[Config for nvim-ts-autotag]], true)
-try_loadstring("\27LJ\2\n“\3\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\14skip_tags\1\19\0\0\tarea\tbase\abr\bcol\fcommand\nembed\ahr\bimg\tslot\ninput\vkeygen\tlink\tmeta\nparam\vsource\ntrack\bwbr\rmenuitem\14filetypes\1\18\0\0\thtml\15javascript\15typescript\20javascriptreact\20typescriptreact\vsvelte\bvue\btsx\bjsx\rrescript\bxml\bphp\rmarkdown\fglimmer\15handlebars\bhbs\nastro\1\0\4\26enable_close_on_slash\2\17enable_close\2\18enable_rename\2\venable\2\nsetup\20nvim-ts-autotag\frequire\0", "config", "nvim-ts-autotag")
+try_loadstring("\27LJ\2\n“\3\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\14skip_tags\1\19\0\0\tarea\tbase\abr\bcol\fcommand\nembed\ahr\bimg\tslot\ninput\vkeygen\tlink\tmeta\nparam\vsource\ntrack\bwbr\rmenuitem\14filetypes\1\18\0\0\thtml\15javascript\15typescript\20javascriptreact\20typescriptreact\vsvelte\bvue\btsx\bjsx\rrescript\bxml\bphp\rmarkdown\fglimmer\15handlebars\bhbs\nastro\1\0\4\17enable_close\2\18enable_rename\2\venable\2\26enable_close_on_slash\2\nsetup\20nvim-ts-autotag\frequire\0", "config", "nvim-ts-autotag")
 time([[Config for nvim-ts-autotag]], false)
 -- Config for: nvim-treesitter-refactor
 time([[Config for nvim-treesitter-refactor]], true)
