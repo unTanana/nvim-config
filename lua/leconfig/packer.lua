@@ -97,7 +97,7 @@ return require('packer').startup(function(use)
                 filetypes = {
                     'html', 'javascript', 'typescript', 'javascriptreact',
                     'typescriptreact', 'svelte', 'vue', 'tsx',
-                    'jsx', 'rescript',
+                    'jsx', 'rescript', 'templ',
                     'xml',
                     'php',
                     'markdown',
