@@ -169,4 +169,4 @@ end
 vim.api.nvim_create_user_command("ToggleFormatOnSave", toggle_format_on_save, {})
 
 -- toggle format on save by default
--- toggle_format_on_save();
+toggle_format_on_save();
