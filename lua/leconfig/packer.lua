@@ -140,4 +140,10 @@ return require('packer').startup(function(use)
     use { 'mbbill/undotree' }
     use { "stevearc/oil.nvim" }
     use { 'chentoast/marks.nvim' }
+    use { 'brenoprata10/nvim-highlight-colors' }
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
+    use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
 end)
