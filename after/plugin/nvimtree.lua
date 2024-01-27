@@ -91,7 +91,7 @@ local function on_attach(bufnr)
     vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts('Close Directory'))
 end
 
-require("nvim-web-devicons").setup{
+require("nvim-web-devicons").setup {
     override = {
         toml = {
             icon = "",
@@ -239,3 +239,23 @@ require("nvim-tree").setup({
 
 
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
+
+local function handleUrl()
+    local line = vim.api.nvim_get_current_line()
+    local uri = string.match(line, '[a-z]*://[^ >,;()]*')
+    uri = vim.fn.shellescape(uri, true)
+
+    -- Print the URI
+    -- print(uri)
+
+    if uri ~= "" then
+        -- Use Neovim's built-in terminal to open the URL
+        vim.api.nvim_command('silent !open ' .. uri)
+        vim.api.nvim_command('redraw!')
+    else
+        print("No URI found in line.")
+    end
+end
+
+-- Create a normal mode mapping
+vim.keymap.set('n', 'gx', handleUrl, { noremap = true, silent = true })

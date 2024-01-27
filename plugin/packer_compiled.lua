@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/cipriantanana/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/cipriantanana/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/cipriantanana/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/cipriantanana/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/cipriantanana/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/Users/cipriantanana/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?.lua;/Users/cipriantanana/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?/init.lua;/Users/cipriantanana/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?.lua;/Users/cipriantanana/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/cipriantanana/.cache/nvim/packer_hererocks/2.1.1703358377/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -221,7 +221,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-treesitter/nvim-treesitter-refactor"
   },
   ["nvim-ts-autotag"] = {
-    config = { "\27LJ\2\nô\3\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\14skip_tags\1\19\0\0\tarea\tbase\abr\bcol\fcommand\nembed\ahr\bimg\tslot\ninput\vkeygen\tlink\tmeta\nparam\vsource\ntrack\bwbr\rmenuitem\14filetypes\1\19\0\0\thtml\15javascript\15typescript\20javascriptreact\20typescriptreact\vsvelte\bvue\btsx\bjsx\rrescript\ntempl\bxml\bphp\rmarkdown\fglimmer\15handlebars\bhbs\nastro\1\0\4\18enable_rename\2\venable\2\26enable_close_on_slash\2\17enable_close\2\nsetup\20nvim-ts-autotag\frequire\0" },
+    config = { "\27LJ\2\nô\3\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\14skip_tags\1\19\0\0\tarea\tbase\abr\bcol\fcommand\nembed\ahr\bimg\tslot\ninput\vkeygen\tlink\tmeta\nparam\vsource\ntrack\bwbr\rmenuitem\14filetypes\1\19\0\0\thtml\15javascript\15typescript\20javascriptreact\20typescriptreact\vsvelte\bvue\btsx\bjsx\rrescript\ntempl\bxml\bphp\rmarkdown\fglimmer\15handlebars\bhbs\nastro\1\0\4\26enable_close_on_slash\2\17enable_close\2\18enable_rename\2\venable\2\nsetup\20nvim-ts-autotag\frequire\0" },
     loaded = true,
     path = "/Users/cipriantanana/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
     url = "https://github.com/windwp/nvim-ts-autotag"
@@ -290,7 +290,7 @@ try_loadstring("\27LJ\2\n¡\1\0\0\6\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\b\
 time([[Config for nvim-treesitter-refactor]], false)
 -- Config for: nvim-ts-autotag
 time([[Config for nvim-ts-autotag]], true)
-try_loadstring("\27LJ\2\nô\3\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\14skip_tags\1\19\0\0\tarea\tbase\abr\bcol\fcommand\nembed\ahr\bimg\tslot\ninput\vkeygen\tlink\tmeta\nparam\vsource\ntrack\bwbr\rmenuitem\14filetypes\1\19\0\0\thtml\15javascript\15typescript\20javascriptreact\20typescriptreact\vsvelte\bvue\btsx\bjsx\rrescript\ntempl\bxml\bphp\rmarkdown\fglimmer\15handlebars\bhbs\nastro\1\0\4\18enable_rename\2\venable\2\26enable_close_on_slash\2\17enable_close\2\nsetup\20nvim-ts-autotag\frequire\0", "config", "nvim-ts-autotag")
+try_loadstring("\27LJ\2\nô\3\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\14skip_tags\1\19\0\0\tarea\tbase\abr\bcol\fcommand\nembed\ahr\bimg\tslot\ninput\vkeygen\tlink\tmeta\nparam\vsource\ntrack\bwbr\rmenuitem\14filetypes\1\19\0\0\thtml\15javascript\15typescript\20javascriptreact\20typescriptreact\vsvelte\bvue\btsx\bjsx\rrescript\ntempl\bxml\bphp\rmarkdown\fglimmer\15handlebars\bhbs\nastro\1\0\4\26enable_close_on_slash\2\17enable_close\2\18enable_rename\2\venable\2\nsetup\20nvim-ts-autotag\frequire\0", "config", "nvim-ts-autotag")
 time([[Config for nvim-ts-autotag]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
