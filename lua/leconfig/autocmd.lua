@@ -112,12 +112,38 @@ autocmd("BufEnter", {
     end,
 })
 
+local function run_go_test()
+    -- Yank the current word (equivalent to 'yiw' in Vim)
+    vim.cmd("normal! \"zyiw")
+
+    -- Get the yanked word from register "z"
+    local test_name = vim.fn.getreg('z')
+    local current_folder_name = vim.fn.expand('%:p:h:t')
+    local test_command = "!go test -v -timeout 30s -run ^" .. test_name .. " ./" .. current_folder_name
+
+    -- Check if test_name is not empty
+    if test_name and test_name ~= "" then
+        -- Run the test on the yanked word (test function name)
+        -- The exact command might depend on your test setup
+        vim.cmd(test_command)
+    else
+        -- If no word is yanked, run all tests
+        vim.cmd('!go test -v -timeout 30s ./...')
+    end
+end
+
+-- To use this function, you can bind it to a key in your vimrc/init.lua
+-- For example:
+-- vim.api.nvim_set_keymap('n', '<key>', ':lua run_go_test_on_current_word()<CR>', { noremap = true, silent = true })
 
 autocmd("BufEnter", {
     group = LeGroup,
     pattern = "*.go",
     callback = function()
         vim.keymap.set("n", "<leader>lr", "<cmd>!go run %<CR>", { noremap = true, silent = false })
+        vim.keymap.set("n", "<leader>lR", "<cmd>!go run .<CR>", { noremap = true, silent = false })
+        vim.keymap.set("n", "<leader>lt", run_go_test, { noremap = true, silent = false })
+        vim.keymap.set("n", "<leader>lT", "<cmd>!go test -v -timeout 30s ./...<CR>", { noremap = true, silent = false })
         vim.fn.setreg('l', 'yiwolog.Printf("jkpa %+vjkla, jkp')
         vim.fn.setreg('L', 'yolog.Printf("jkpa %+vjkla, jkp')
         vim.fn.setreg('k', "ojkccif err != nil {\njkccreturn nil, err\n}jk")
