@@ -64,9 +64,6 @@ return require('packer').startup(function(use)
     use {
         'numToStr/Comment.nvim'
     }
-    use {
-        'ojroques/nvim-bufdel'
-    }
     use { "akinsho/toggleterm.nvim", tag = '*' }
     use {
         "glepnir/lspsaga.nvim",

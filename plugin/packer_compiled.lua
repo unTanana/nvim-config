@@ -184,11 +184,6 @@ _G.packer_plugins = {
     path = "/Users/cipriantanana/.local/share/nvim/site/pack/packer/opt/nvim-bqf",
     url = "https://github.com/kevinhwang91/nvim-bqf"
   },
-  ["nvim-bufdel"] = {
-    loaded = true,
-    path = "/Users/cipriantanana/.local/share/nvim/site/pack/packer/start/nvim-bufdel",
-    url = "https://github.com/ojroques/nvim-bufdel"
-  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/cipriantanana/.local/share/nvim/site/pack/packer/start/nvim-cmp",
