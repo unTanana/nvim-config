@@ -9,8 +9,8 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.2',
-        -- or                            , branch = '0.1.x',
+        'nvim-telescope/telescope.nvim', tag = '0.1.5',
+        -- or
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
     use {
@@ -143,4 +143,14 @@ return require('packer').startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
     use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
+    use {
+        'akinsho/flutter-tools.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            "RobertBrunhage/flutter-riverpod-snippets"
+        },
+    }
+    use {
+        'HiPhish/rainbow-delimiters.nvim'
+    }
 end)

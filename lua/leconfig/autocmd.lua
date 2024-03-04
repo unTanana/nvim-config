@@ -153,6 +153,19 @@ autocmd("BufEnter", {
 
 autocmd("BufEnter", {
     group = LeGroup,
+    pattern = "*.dart",
+    callback = function()
+        vim.keymap.set("n", "<leader>lr", "<cmd>FlutterRun<CR>", { noremap = true, silent = false })
+        vim.keymap.set("n", "<leader>lR", "<cmd>FlutterRestart<CR>", { noremap = true, silent = false })
+        vim.keymap.set("n", "<leader>lq", "<cmd>FlutterQuit<CR>", { noremap = true, silent = false })
+        vim.fn.setreg('l', 'yiwoprint(\'jkpa $jkpa\');jk')
+        vim.fn.setreg('L', 'y<ESC>oprint(\'jkpa $jkpa\');jk')
+    end,
+})
+
+
+autocmd("BufEnter", {
+    group = LeGroup,
     pattern = "*.json",
     callback = function()
         vim.keymap.set("n", "<leader>lF", "<cmd>%!jq --tab<CR><cmd>w!<CR>", { noremap = true, silent = true })
