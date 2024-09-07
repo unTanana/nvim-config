@@ -70,38 +70,31 @@ return require('packer').startup(function(use)
         branch = "main",
     }
     use {
-        "zbirenbaum/copilot.lua",
-    }
-    use {
-        "zbirenbaum/copilot-cmp",
-        after = { "copilot.lua" },
-        config = function()
-            require("copilot_cmp").setup()
-        end
-    }
-    use {
         'jose-elias-alvarez/null-ls.nvim',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
     use {
         "windwp/nvim-ts-autotag",
         config = function()
-            require("nvim-ts-autotag").setup({
-                enable = true,
-                enable_rename = true,
-                enable_close = true,
-                enable_close_on_slash = true,
-                filetypes = {
-                    'html', 'javascript', 'typescript', 'javascriptreact',
-                    'typescriptreact', 'svelte', 'vue', 'tsx',
-                    'jsx', 'rescript', 'templ',
-                    'xml',
-                    'php',
-                    'markdown',
-                    'glimmer', 'handlebars', 'hbs', 'astro',
+            require('nvim-ts-autotag').setup({
+                opts = {
+                    -- Defaults
+                    enable_close = true,          -- Auto close tags
+                    enable_rename = true,         -- Auto rename pairs of tags
+                    enable_close_on_slash = false -- Auto close on trailing </
                 },
-                skip_tags = { 'area', 'base', 'br', 'col', 'command', 'embed', 'hr', 'img', 'slot',
-                    'input', 'keygen', 'link', 'meta', 'param', 'source', 'track', 'wbr', 'menuitem' }
+                aliases = {
+                    ["astro"] = "html",
+                    ["heex"] = "html"
+                },
+                -- Also override individual filetype configs, these take priority.
+                -- Empty by default, useful if one of the "opts" global settings
+                -- doesn't work well in a specific filetype
+                per_filetype = {
+                    ["html"] = {
+                        enable_close = false
+                    }
+                }
             })
         end
     }

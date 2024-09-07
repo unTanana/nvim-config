@@ -7,6 +7,6 @@ require('flutter-tools').setup({
         capabilities = dart_lsp.capabilities
     },
     widget_guides = {
-        enabled = true,
+        enabled = false,
     },
 })

@@ -47,5 +47,6 @@ vim.opt.laststatus = 3
 vim.filetype.add({
     extension = {
         templ = "templ",
+        heex = "heex",
     },
 })

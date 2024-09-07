@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/cipriantanana/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?.lua;/Users/cipriantanana/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?/init.lua;/Users/cipriantanana/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?.lua;/Users/cipriantanana/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/cipriantanana/.cache/nvim/packer_hererocks/2.1.1703358377/lib/lua/5.1/?.so"
+local package_path_str = "/Users/cipriantanana/.cache/nvim/packer_hererocks/2.1.1720049189/share/lua/5.1/?.lua;/Users/cipriantanana/.cache/nvim/packer_hererocks/2.1.1720049189/share/lua/5.1/?/init.lua;/Users/cipriantanana/.cache/nvim/packer_hererocks/2.1.1720049189/lib/luarocks/rocks-5.1/?.lua;/Users/cipriantanana/.cache/nvim/packer_hererocks/2.1.1720049189/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/cipriantanana/.cache/nvim/packer_hererocks/2.1.1720049189/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -88,19 +88,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/cipriantanana/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
-  },
-  ["copilot-cmp"] = {
-    config = { "\27LJ\2\n9\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\16copilot_cmp\frequire\0" },
-    load_after = {},
-    loaded = true,
-    needs_bufread = false,
-    path = "/Users/cipriantanana/.local/share/nvim/site/pack/packer/opt/copilot-cmp",
-    url = "https://github.com/zbirenbaum/copilot-cmp"
-  },
-  ["copilot.lua"] = {
-    loaded = true,
-    path = "/Users/cipriantanana/.local/share/nvim/site/pack/packer/start/copilot.lua",
-    url = "https://github.com/zbirenbaum/copilot.lua"
   },
   ["flutter-riverpod-snippets"] = {
     loaded = true,
@@ -220,13 +207,13 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-treesitter-refactor"] = {
-    config = { "\27LJ\2\n¡\1\0\0\6\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\b\0005\3\6\0005\4\3\0005\5\4\0=\5\5\4=\4\a\3=\3\t\2B\0\2\1K\0\1\0\rrefactor\1\0\0\15navigation\1\0\0\fkeymaps\1\0\2\20goto_next_usage\n<C-[>\24goto_previous_usage\n<C-]>\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0" },
+    config = { "\27LJ\2\n‡\1\0\0\6\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\b\0005\3\6\0005\4\3\0005\5\4\0=\5\5\4=\4\a\3=\3\t\2B\0\2\1K\0\1\0\rrefactor\1\0\1\rrefactor\0\15navigation\1\0\1\15navigation\0\fkeymaps\1\0\2\20goto_next_usage\n<C-[>\24goto_previous_usage\n<C-]>\1\0\2\venable\2\fkeymaps\0\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
     path = "/Users/cipriantanana/.local/share/nvim/site/pack/packer/start/nvim-treesitter-refactor",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-refactor"
   },
   ["nvim-ts-autotag"] = {
-    config = { "\27LJ\2\nô\3\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\14skip_tags\1\19\0\0\tarea\tbase\abr\bcol\fcommand\nembed\ahr\bimg\tslot\ninput\vkeygen\tlink\tmeta\nparam\vsource\ntrack\bwbr\rmenuitem\14filetypes\1\19\0\0\thtml\15javascript\15typescript\20javascriptreact\20typescriptreact\vsvelte\bvue\btsx\bjsx\rrescript\ntempl\bxml\bphp\rmarkdown\fglimmer\15handlebars\bhbs\nastro\1\0\4\26enable_close_on_slash\2\17enable_close\2\18enable_rename\2\venable\2\nsetup\20nvim-ts-autotag\frequire\0" },
+    config = { "\27LJ\2\nâ\2\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\0025\3\t\0005\4\b\0=\4\n\3=\3\v\2B\0\2\1K\0\1\0\17per_filetype\thtml\1\0\1\thtml\0\1\0\1\17enable_close\1\faliases\1\0\2\nastro\thtml\theex\thtml\topts\1\0\3\topts\0\17per_filetype\0\faliases\0\1\0\3\18enable_rename\2\17enable_close\2\26enable_close_on_slash\1\nsetup\20nvim-ts-autotag\frequire\0" },
     loaded = true,
     path = "/Users/cipriantanana/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
     url = "https://github.com/windwp/nvim-ts-autotag"
@@ -296,21 +283,12 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: nvim-ts-autotag
 time([[Config for nvim-ts-autotag]], true)
-try_loadstring("\27LJ\2\nô\3\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\14skip_tags\1\19\0\0\tarea\tbase\abr\bcol\fcommand\nembed\ahr\bimg\tslot\ninput\vkeygen\tlink\tmeta\nparam\vsource\ntrack\bwbr\rmenuitem\14filetypes\1\19\0\0\thtml\15javascript\15typescript\20javascriptreact\20typescriptreact\vsvelte\bvue\btsx\bjsx\rrescript\ntempl\bxml\bphp\rmarkdown\fglimmer\15handlebars\bhbs\nastro\1\0\4\26enable_close_on_slash\2\17enable_close\2\18enable_rename\2\venable\2\nsetup\20nvim-ts-autotag\frequire\0", "config", "nvim-ts-autotag")
+try_loadstring("\27LJ\2\nâ\2\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\0025\3\t\0005\4\b\0=\4\n\3=\3\v\2B\0\2\1K\0\1\0\17per_filetype\thtml\1\0\1\thtml\0\1\0\1\17enable_close\1\faliases\1\0\2\nastro\thtml\theex\thtml\topts\1\0\3\topts\0\17per_filetype\0\faliases\0\1\0\3\18enable_rename\2\17enable_close\2\26enable_close_on_slash\1\nsetup\20nvim-ts-autotag\frequire\0", "config", "nvim-ts-autotag")
 time([[Config for nvim-ts-autotag]], false)
 -- Config for: nvim-treesitter-refactor
 time([[Config for nvim-treesitter-refactor]], true)
-try_loadstring("\27LJ\2\n¡\1\0\0\6\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\b\0005\3\6\0005\4\3\0005\5\4\0=\5\5\4=\4\a\3=\3\t\2B\0\2\1K\0\1\0\rrefactor\1\0\0\15navigation\1\0\0\fkeymaps\1\0\2\20goto_next_usage\n<C-[>\24goto_previous_usage\n<C-]>\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter-refactor")
+try_loadstring("\27LJ\2\n‡\1\0\0\6\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\b\0005\3\6\0005\4\3\0005\5\4\0=\5\5\4=\4\a\3=\3\t\2B\0\2\1K\0\1\0\rrefactor\1\0\1\rrefactor\0\15navigation\1\0\1\15navigation\0\fkeymaps\1\0\2\20goto_next_usage\n<C-[>\24goto_previous_usage\n<C-]>\1\0\2\venable\2\fkeymaps\0\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter-refactor")
 time([[Config for nvim-treesitter-refactor]], false)
--- Load plugins in order defined by `after`
-time([[Sequenced loading]], true)
-vim.cmd [[ packadd copilot.lua ]]
-vim.cmd [[ packadd copilot-cmp ]]
-
--- Config for: copilot-cmp
-try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\16copilot_cmp\frequire\0", "config", "copilot-cmp")
-
-time([[Sequenced loading]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads

@@ -126,6 +126,7 @@ local has_words_before = function()
 end
 
 local cmp_mappings = lsp.defaults.cmp_mappings({
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
     ['<C-a>'] = cmp.mapping.confirm({ select = true }),
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-u>'] = cmp.mapping.scroll_docs(4),
@@ -161,17 +162,10 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 
 lsp.setup_nvim_cmp({
     sources = {
-        -- Copilot Source
-        { name = "copilot",  group_index = 2 },
         -- Other Sources
         { name = "nvim_lsp", group_index = 2 },
         { name = "path",     group_index = 2 },
         { name = "luasnip",  group_index = 2 },
-    },
-    formatting = {
-        source_names = {
-            copilot = "(Copilot)"
-        }
     },
     mapping = cmp_mappings
 })

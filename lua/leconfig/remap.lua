@@ -27,7 +27,7 @@ vim.keymap.set("n", "<leader>Lc", "<cmd>edit ~/.config/nvim/init.lua<CR>");
 
 vim.keymap.set("n", "<leader>co", organize_imports);
 
-vim.keymap.set("n", "<C-w>", '<C-6>')
+vim.keymap.set('n', '<C-Tab>', '<C-^>')
 vim.keymap.set("n", "<C-s>", ":w<cr>");
 vim.keymap.set("i", "<C-s>", "<ESC>:w<cr>a");
 vim.keymap.set("n", "<S-CR>", "o<ESC>")

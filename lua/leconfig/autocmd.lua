@@ -97,7 +97,7 @@ autocmd("BufEnter", {
     group = LeGroup,
     pattern = "*.ts",
     callback = function()
-        vim.keymap.set("n", "<leader>lr", "<cmd>!ts-node %<CR>", { noremap = true, silent = false })
+        vim.keymap.set("n", "<leader>lr", "<cmd>!bun %<CR>", { noremap = true, silent = false })
         vim.keymap.set("n", "<leader>lb", "<cmd>!npm run build <CR>", { noremap = true, silent = false })
         vim.keymap.set("n", "<leader>lt", "<cmd>!npm run test % <CR>", { noremap = true, silent = false })
     end,
