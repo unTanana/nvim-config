@@ -1,3 +1,10 @@
+require("harpoon").setup({
+    menu = {
+        width = math.floor(vim.api.nvim_win_get_width(0) - vim.api.nvim_win_get_width(0) / 4)
+    }
+})
+
+
 vim.keymap.set("n", "<C-1>", function() require("harpoon.ui").nav_file(1) end)
 vim.keymap.set("n", "<C-2>", function() require("harpoon.ui").nav_file(2) end)
 vim.keymap.set("n", "<C-3>", function() require("harpoon.ui").nav_file(3) end)

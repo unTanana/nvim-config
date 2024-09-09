@@ -150,10 +150,9 @@ require("nvim-tree").setup({
             open_win_config = {
                 relative = "editor",
                 border = "rounded",
-                width = 120,
-                height = 120,
-                row = 10,
-                col = 56,
+                width = math.floor(vim.api.nvim_win_get_width(0) - vim.api.nvim_win_get_width(0) / 4),
+                height = math.floor(vim.api.nvim_win_get_height(0)),
+                col = math.floor(vim.api.nvim_win_get_width(0) - 3.5 * vim.api.nvim_win_get_width(0) / 4),
             },
         },
     },
@@ -259,3 +258,4 @@ end
 
 -- Create a normal mode mapping
 vim.keymap.set('n', 'gx', handleUrl, { noremap = true, silent = true })
+

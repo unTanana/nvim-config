@@ -281,14 +281,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-ts-autotag
-time([[Config for nvim-ts-autotag]], true)
-try_loadstring("\27LJ\2\n‰\2\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\0025\3\t\0005\4\b\0=\4\n\3=\3\v\2B\0\2\1K\0\1\0\17per_filetype\thtml\1\0\1\thtml\0\1\0\1\17enable_close\1\faliases\1\0\2\nastro\thtml\theex\thtml\topts\1\0\3\topts\0\17per_filetype\0\faliases\0\1\0\3\18enable_rename\2\17enable_close\2\26enable_close_on_slash\1\nsetup\20nvim-ts-autotag\frequire\0", "config", "nvim-ts-autotag")
-time([[Config for nvim-ts-autotag]], false)
 -- Config for: nvim-treesitter-refactor
 time([[Config for nvim-treesitter-refactor]], true)
 try_loadstring("\27LJ\2\nà\1\0\0\6\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\b\0005\3\6\0005\4\3\0005\5\4\0=\5\5\4=\4\a\3=\3\t\2B\0\2\1K\0\1\0\rrefactor\1\0\1\rrefactor\0\15navigation\1\0\1\15navigation\0\fkeymaps\1\0\2\20goto_next_usage\n<C-[>\24goto_previous_usage\n<C-]>\1\0\2\venable\2\fkeymaps\0\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter-refactor")
 time([[Config for nvim-treesitter-refactor]], false)
+-- Config for: nvim-ts-autotag
+time([[Config for nvim-ts-autotag]], true)
+try_loadstring("\27LJ\2\n‰\2\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\0025\3\t\0005\4\b\0=\4\n\3=\3\v\2B\0\2\1K\0\1\0\17per_filetype\thtml\1\0\1\thtml\0\1\0\1\17enable_close\1\faliases\1\0\2\nastro\thtml\theex\thtml\topts\1\0\3\topts\0\17per_filetype\0\faliases\0\1\0\3\18enable_rename\2\17enable_close\2\26enable_close_on_slash\1\nsetup\20nvim-ts-autotag\frequire\0", "config", "nvim-ts-autotag")
+time([[Config for nvim-ts-autotag]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
