@@ -63,14 +63,6 @@ vim.opt.showcmd = false
 vim.opt.ruler = false
 vim.opt.laststatus = 3
 
--- additional filetypes
-vim.filetype.add({
-    extension = {
-        templ = "templ",
-        heex = "heex",
-    },
-})
-
 local function organize_imports()
     -- get current file extension
     local ext = vim.fn.expand("%:e")
