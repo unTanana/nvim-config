@@ -135,6 +135,7 @@ return {
 				mapping = cmp.mapping.preset.insert({
 					["<C-Space>"] = cmp.mapping.complete(),
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
+					["<C-a>"] = cmp.mapping.confirm({ select = true }),
 					["<C-d>"] = cmp.mapping.scroll_docs(-4),
 					["<C-u>"] = cmp.mapping.scroll_docs(4),
 					["<Tab>"] = cmp.mapping(function(fallback)
@@ -168,6 +169,7 @@ return {
 					error = "E",
 				},
 				sources = cmp.config.sources({
+                    { name = "supermaven" },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" }, -- For luasnip users.
 				}, {
@@ -176,6 +178,7 @@ return {
 				formatting = {
 					format = require("lspkind").cmp_format({
 						before = require("tailwind-tools.cmp").lspkind_format,
+                        symbol_map = { Supermaven = "" }
 					}),
 				},
 			})
