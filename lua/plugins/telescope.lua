@@ -25,6 +25,12 @@ return {
 							mirror = false, -- Don't mirror the layout
 						},
 					},
+					mappings = {
+						i = {
+							["<Tab>"] = require("telescope.actions").move_selection_previous,
+							["<S-Tab>"] = require("telescope.actions").move_selection_next,
+						},
+					},
 				},
 				extensions = {
 					["ui-select"] = {
@@ -39,6 +45,8 @@ return {
 								["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
 								-- freeze the current list and start a fuzzy search in the frozen list
 								["<C-space>"] = lga_actions.to_fuzzy_refine,
+								["<Tab>"] = require("telescope.actions").move_selection_previous,
+								["<S-Tab>"] = require("telescope.actions").move_selection_next,
 							},
 						},
 						-- ... also accepts theme settings, for example:
@@ -55,7 +63,7 @@ return {
 			})
 			local builtin = require("telescope.builtin")
 			local telescope = require("telescope")
-            -- local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
+			-- local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
 
 			vim.keymap.set("n", "<leader><leader>", builtin.oldfiles, {})
 			vim.keymap.set("n", "<leader>sf", builtin.find_files, {})
