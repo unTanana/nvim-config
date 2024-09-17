@@ -107,6 +107,7 @@ vim.keymap.set("n", "gs", ":vsplit | norm gd<CR>")
 
 vim.keymap.set("n", "<leader>x", "<cmd>q<CR>")
 vim.keymap.set("n", "<leader>h", "<cmd>nohlsearch<CR>")
+vim.keymap.set("n", "<leader>X", "<cmd>wincmd x<CR>")
 
 -- delete before paste
 vim.keymap.set("v", "<leader>p", '"_dP')
