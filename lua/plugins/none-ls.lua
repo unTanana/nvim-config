@@ -28,6 +28,7 @@ return {
 		vim.keymap.set("n", "<leader>lf", require("format-helpers").do_format, {})
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {})
 		vim.keymap.set("n", "gr", vim.lsp.buf.references, {})
 		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 		vim.keymap.set("n", "gl", vim.diagnostic.open_float, {})
@@ -37,4 +38,3 @@ return {
 		vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {})
 	end,
 }
-
