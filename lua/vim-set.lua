@@ -162,5 +162,26 @@ vim.keymap.set("n", "<leader>cl", "@l")
 vim.keymap.set("n", "<leader>cD", "@o")
 vim.keymap.set("n", "<leader>ce", "@k")
 vim.keymap.set("n", "<leader>v", "<CMD>vsplit<CR>")
+vim.keymap.set("n", "<leader>bd", "<CMD>%bd|edit#|bd#<CR>", { noremap = true, silent = true })
 
+vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 
+local function handleUrl()
+	local line = vim.api.nvim_get_current_line()
+	local uri = string.match(line, "[a-z]*://[^ >,;()]*")
+	uri = vim.fn.shellescape(uri, true)
+
+	-- Print the URI
+	-- print(uri)
+
+	if uri ~= "" then
+		-- Use Neovim's built-in terminal to open the URL
+		vim.api.nvim_command("silent !open " .. uri)
+		vim.api.nvim_command("redraw!")
+	else
+		print("No URI found in line.")
+	end
+end
+
+-- Create a normal mode mapping
+vim.keymap.set("n", "gx", handleUrl, { noremap = true, silent = true })

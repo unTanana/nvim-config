@@ -1,0 +1,55 @@
+return {}
+-- return {
+-- 	"jedrzejboczar/possession.nvim",
+-- 	dependecies = { "nvim-lua/plenary.nvim" },
+-- 	config = function()
+-- 		require("possession").setup({
+-- 			autosave = {
+-- 				current = true, -- or fun(name): boolean
+-- 				on_load = true,
+-- 				on_quit = true,
+-- 			},
+-- 			autoload = true, -- or 'last' or 'auto_cwd' or 'last_cwd' or fun(): string
+-- 			plugins = {
+-- 				delete_hidden_buffers = {
+-- 					hooks = {
+-- 						"before_load",
+-- 						vim.o.sessionoptions:match("buffer") and "before_save",
+-- 					},
+-- 					force = false, -- or fun(buf): boolean
+-- 				},
+-- 				nvim_tree = true,
+-- 				neo_tree = true,
+-- 				symbols_outline = true,
+-- 				outline = true,
+-- 				tabby = true,
+-- 				dap = true,
+-- 				dapui = true,
+-- 				neotest = true,
+-- 				delete_buffers = false,
+-- 				stop_lsp_clients = false,
+-- 			},
+-- 			telescope = {
+-- 				previewer = {
+-- 					enabled = true,
+-- 					previewer = "pretty", -- or 'raw' or fun(opts): Previewer
+-- 					wrap_lines = true,
+-- 					include_empty_plugin_data = false,
+-- 					cwd_colors = {
+-- 						cwd = "Comment",
+-- 						tab_cwd = { "#cc241d", "#b16286", "#d79921", "#689d6a", "#d65d0e", "#458588" },
+-- 					},
+-- 				},
+-- 				list = {
+-- 					default_action = "load",
+-- 					mappings = {
+-- 						save = { n = "<c-x>", i = "<c-x>" },
+-- 						load = { n = "<c-v>", i = "<c-v>" },
+-- 						delete = { n = "<c-t>", i = "<c-t>" },
+-- 						rename = { n = "<c-r>", i = "<c-r>" },
+-- 					},
+-- 				},
+-- 			},
+-- 		})
+-- 	end,
+-- }
