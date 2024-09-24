@@ -51,5 +51,6 @@
   "vim-kitty-navigator": { "branch": "master", "commit": "20abf8613aa228a5def1ae02cd9da0f2d210352a" },
   "vim-sneak": { "branch": "master", "commit": "c13d0497139b8796ff9c44ddb9bc0dc9770ad2dd" },
   "vim-test": { "branch": "master", "commit": "c090bfd93919888bb0b86e1ab707bc6a3095097f" },
-  "vscode": { "branch": "main", "commit": "7de58b7a6d55fe48475d0ba2fddbcec871717761" }
+  "vscode": { "branch": "main", "commit": "7de58b7a6d55fe48475d0ba2fddbcec871717761" },
+  "yankbank-nvim": { "branch": "main", "commit": "12cdaa73931a12673580e82d4ba616967164d0f6" }
 }
