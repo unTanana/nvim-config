@@ -48,6 +48,9 @@ return {
 				capabilities = capabilities,
 				cmd = { "/Users/cipriantanana/.local/share/nvim/mason/bin/lexical" }, -- Replace with the correct path
 			})
+			lspconfig.rust_analyzer.setup({
+				capabilities = capabilities,
+			})
 			lspconfig.html.setup({
 				capabilities = capabilities,
 			})
