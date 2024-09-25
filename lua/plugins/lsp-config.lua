@@ -44,6 +44,9 @@ return {
 			lspconfig.zls.setup({
 				capabilities = capabilities,
 			})
+			lspconfig.jsonls.setup({
+				capabilities = capabilities,
+			})
 			lspconfig.lexical.setup({
 				capabilities = capabilities,
 				cmd = { "/Users/cipriantanana/.local/share/nvim/mason/bin/lexical" }, -- Replace with the correct path
