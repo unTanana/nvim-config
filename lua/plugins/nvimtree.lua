@@ -22,7 +22,10 @@ return {
             vim.keymap.set("n", "<C-v>", api.node.open.vertical, opts("Open: Vertical Split"))
             vim.keymap.set("n", "<C-x>", api.node.open.horizontal, opts("Open: Horizontal Split"))
             vim.keymap.set("n", "<BS>", function()
-                api.node.navigate.parent()
+                local node = api.tree.get_node_under_cursor()
+                if not node.open or not node.type ~= "directory" then
+                    api.node.navigate.parent()
+                end
                 api.node.open.edit()
             end, opts("Close Directory"))
             vim.keymap.set("n", "<CR>", api.node.open.edit, opts("Open"))
@@ -79,7 +82,10 @@ return {
             vim.keymap.set("n", "<CR>", api.node.open.edit, opts("Open"))
             vim.keymap.set("n", "o", api.node.open.edit, opts("Open"))
             vim.keymap.set("n", "h", function()
-                api.node.navigate.parent()
+                local node = api.tree.get_node_under_cursor()
+                if not node.open or not node.type ~= "directory" then
+                    api.node.navigate.parent()
+                end
                 api.node.open.edit()
             end, opts("Close Directory"))
         end
