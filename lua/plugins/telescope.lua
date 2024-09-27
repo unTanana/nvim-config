@@ -3,6 +3,13 @@ return {
 		"nvim-telescope/telescope-ui-select.nvim",
 	},
 	{
+		"rest-nvim/rest.nvim",
+		config = function()
+			vim.keymap.set("n", "<leader>rr", ":Rest run<CR>", {})
+			vim.keymap.set("n", "<leader>rl", ":Rest last<CR>", {})
+		end,
+	},
+	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.5",
 		dependencies = {
@@ -73,6 +80,8 @@ return {
 			vim.keymap.set("n", "<leader>sw", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>")
 
 			require("telescope").load_extension("ui-select")
+			require("telescope").load_extension("rest")
+			vim.keymap.set("n", "<leader>re", require("telescope").extensions.rest.select_env, {})
 		end,
 	},
 }
