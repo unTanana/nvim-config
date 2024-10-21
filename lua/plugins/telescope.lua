@@ -76,6 +76,7 @@ return {
 			vim.keymap.set("n", "<leader>sf", builtin.find_files, {})
 			vim.keymap.set("n", "<leader>sr", builtin.resume, {})
 			vim.keymap.set("n", "<leader>sg", builtin.git_files, {})
+			vim.keymap.set("n", "<leader>sb", builtin.buffers, {})
 			vim.keymap.set("n", "<leader>f", telescope.extensions.live_grep_args.live_grep_args, {})
 			vim.keymap.set("n", "<leader>sw", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>")
 

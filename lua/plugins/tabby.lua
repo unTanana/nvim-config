@@ -38,6 +38,17 @@ return {
 			vim.api.nvim_set_keymap("n", "<leader>wa", ":-tabmove<CR>", { noremap = true })
 			-- move current tab to next position
 			vim.api.nvim_set_keymap("n", "<leader>wd", ":+tabmove<CR>", { noremap = true })
+
+			-- Function to rename tab
+			local function rename_tab()
+				local new_name = vim.fn.input("New tab name: ")
+				if new_name ~= "" then
+					vim.cmd("TabRename " .. new_name)
+				end
+			end
+
+			-- Add key mapping for TabRename
+			vim.keymap.set("n", "<leader>wr", rename_tab, { noremap = true, silent = true })
 		end,
 	},
 }
