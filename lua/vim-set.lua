@@ -61,6 +61,8 @@ vim.opt.sidescrolloff = 8 -- minimal number of screen lines to keep left and rig
 vim.opt.showcmd = false
 vim.opt.ruler = false
 vim.opt.laststatus = 3
+vim.o.showtabline = 2
+vim.opt.sessionoptions = 'curdir,folds,globals,help,tabpages,terminal,winsize'
 
 local function organize_imports()
 	-- get current file extension
@@ -105,7 +107,7 @@ vim.keymap.set("n", "<leader>DD", 'vi{"_d')
 vim.keymap.set("n", "gI", ":vsplit | norm gi<CR>")
 vim.keymap.set("n", "gs", ":vsplit | norm gd<CR>")
 
--- vim.keymap.set("n", "<leader>x", "<cmd>q<CR>")
+vim.keymap.set("n", "<leader>x", "<cmd>q<CR>")
 vim.keymap.set("n", "<leader>h", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "<leader>X", "<cmd>wincmd x<CR>")
 
