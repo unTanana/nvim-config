@@ -21,7 +21,7 @@ return {
 				null_ls.builtins.formatting.prettier,
 				cspell_diagnostics,
 				cspell.code_actions,
-				require("none-ls.diagnostics.eslint_d"),
+				-- require("none-ls.diagnostics.eslint_d"),
 			},
 		})
 

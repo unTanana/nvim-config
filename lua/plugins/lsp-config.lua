@@ -57,6 +57,9 @@ return {
 			lspconfig.html.setup({
 				capabilities = capabilities,
 			})
+			lspconfig.astro.setup({
+				capabilities = capabilities,
+			})
 
 			lspconfig.tailwindcss.setup({
 				capabilities = capabilities,
