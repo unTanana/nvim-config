@@ -84,7 +84,7 @@ end
 
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<leader>Lc", "<cmd>edit ~/.config/nvim/init.lua<CR>")
+-- vim.keymap.set("n", "<leader>Lc", "<cmd>edit ~/.config/nvim/init.lua<CR>")
 
 vim.keymap.set("n", "<leader>co", organize_imports)
 
