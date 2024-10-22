@@ -5,7 +5,7 @@ return {
 		dependencies = "nvim-tree/nvim-web-devicons",
 		config = function()
 			require("tabby").setup({
-				preset = "active_wins_at_tail",
+				preset = "tab_only",
 				option = {
 					theme = {
 						fill = "TabLineFill", -- tabline background
@@ -49,6 +49,16 @@ return {
 
 			-- Add key mapping for TabRename
 			vim.keymap.set("n", "<leader>wr", rename_tab, { noremap = true, silent = true })
+
+
+            vim.keymap.set("n", "<C-1>", "<CMD>tabn 1<CR>", {noremap = true, silent = true})
+            vim.keymap.set("n", "<C-2>", "<CMD>tabn 2<CR>", {noremap = true, silent = true})
+            vim.keymap.set("n", "<C-3>", "<CMD>tabn 3<CR>", {noremap = true, silent = true})
+            vim.keymap.set("n", "<C-4>", "<CMD>tabn 4<CR>", {noremap = true, silent = true})
+            vim.keymap.set("n", "<C-5>", "<CMD>tabn 5<CR>", {noremap = true, silent = true})
+            vim.keymap.set("n", "<C-6>", "<CMD>tabn 6<CR>", {noremap = true, silent = true})
+            vim.keymap.set("n", "<C-7>", "<CMD>tabn 7<CR>", {noremap = true, silent = true})
+            vim.keymap.set("n", "<C-8>", "<CMD>tabn 8<CR>", {noremap = true, silent = true})
 		end,
 	},
 }
