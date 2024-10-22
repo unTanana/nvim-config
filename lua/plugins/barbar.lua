@@ -100,7 +100,6 @@ return {
     --         -- Sort automatically by...
     --         -- map("n", "<leader>bb", "<Cmd>BufferOrderByBufferNumber<CR>", opts)
     --         -- map("n", "<leader>bn", "<Cmd>BufferOrderByName<CR>", opts)
-    --         -- map("n", "<leader>bd", "<Cmd>BufferOrderByDirectory<CR>", opts)
     --         -- map("n", "<leader>bl", "<Cmd>BufferOrderByLanguage<CR>", opts)
     --         -- map("n", "<leader>bw", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
     --
