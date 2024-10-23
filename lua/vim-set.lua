@@ -107,7 +107,7 @@ vim.keymap.set("n", "<leader>DD", 'vi{"_d')
 vim.keymap.set("n", "gI", ":vsplit | norm gi<CR>")
 vim.keymap.set("n", "gs", ":vsplit | norm gd<CR>")
 
-vim.keymap.set("n", "<leader>x", "<cmd>q<CR>")
+-- vim.keymap.set("n", "<leader>x", "<cmd>q<CR>")
 vim.keymap.set("n", "<leader>h", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "<leader>X", "<cmd>wincmd x<CR>")
 
