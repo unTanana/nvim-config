@@ -165,37 +165,7 @@ vim.keymap.set("n", "<leader>cD", "@o")
 vim.keymap.set("n", "<leader>ce", "@k")
 vim.keymap.set("n", "<leader>v", "<CMD>vsplit<CR>")
 
-local function remove_invisible_buffers()
-    local current_tab = vim.api.nvim_get_current_tabpage()
-    local buffers = vim.api.nvim_list_bufs()
-
-    for _, buf in ipairs(buffers) do
-        -- Check if the buffer is listed and hidden
-        if vim.api.nvim_buf_is_loaded(buf) and vim.fn.bufwinnr(buf) == -1 then
-            -- Check if the buffer is not visible in any window of the current tab
-            local windows = vim.api.nvim_tabpage_list_wins(current_tab)
-            local is_visible = false
-
-            for _, win in ipairs(windows) do
-                if vim.api.nvim_win_get_buf(win) == buf then
-                    is_visible = true
-                    break
-                end
-            end
-
-            -- If the buffer is not visible, delete it
-            if not is_visible then
-                vim.api.nvim_buf_delete(buf, { force = true })
-            end
-        end
-    end
-end
-
--- You can map this function to a key combination, for example:
-vim.keymap.set("n", "<leader>bd", remove_invisible_buffers, { noremap = true, silent = true })
-
--- vim.keymap.set("n", "<leader>bd", "<CMD>%bd|edit#|bd#<CR>", { noremap = true, silent = true })
-
+vim.keymap.set("n", "<leader>bd", "<CMD>BufferCloseAllButCurrentOrPinned<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 
 local function handleUrl()
