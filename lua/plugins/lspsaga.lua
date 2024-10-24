@@ -38,8 +38,6 @@ return {
 
         vim.keymap.set("n", "K", ":Lspsaga hover_doc<CR>")
         vim.keymap.set("n", "gd", ":Lspsaga goto_definition<CR>")
-        vim.keymap.set("n", "[e", ":Lspsaga diagnostic_jump_prev<CR>")
-        vim.keymap.set("n", "]e", ":Lspsaga diagnostic_jump_next<CR>")
 
         vim.keymap.set("n", "<leader>cr", "<cmd>Lspsaga rename<CR>")
         vim.keymap.set("n", "<leader>cd", "<cmd>Lspsaga peek_definition<CR>")
