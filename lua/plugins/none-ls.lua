@@ -36,5 +36,14 @@ return {
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 		vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {})
 		vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {})
+        -- Go to next error
+        vim.keymap.set("n", "]e", function()
+            vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
+        end, { silent = true })
+
+        -- Go to previous error
+        vim.keymap.set("n", "[e", function()
+            vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
+        end, { silent = true })
 	end,
 }

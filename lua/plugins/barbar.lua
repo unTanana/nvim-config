@@ -115,6 +115,7 @@ return {
             icons = {
                 -- Disable showing icon for pinned buffers
                 pinned = { button = "📌", filename = true },
+                button = "",
             },
             -- Option to keep the buffer name visible
             visibility = {
@@ -122,10 +123,10 @@ return {
                 pinned = "always",
             },
             -- Sets the maximum padding width with which to surround each tab
-            maximum_padding = 0,
+            maximum_padding = 1,
 
             -- Sets the minimum padding width with which to surround each tab
-            minimum_padding = 0,
+            minimum_padding = 1,
         },
         version = "^1.0.0", -- optional: only update when a new 1.x version is released
     },
