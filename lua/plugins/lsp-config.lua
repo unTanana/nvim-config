@@ -9,9 +9,9 @@ return {
     {
         "williamboman/mason-lspconfig.nvim",
         lazy = false,
-        opts = {
-            auto_install = true,
-        },
+        -- opts = {
+        --     auto_install = true,
+        -- },
     },
     {
         "neovim/nvim-lspconfig",
@@ -61,9 +61,13 @@ return {
                 capabilities = capabilities,
             })
 
+            lspconfig.intelephense.setup({
+                capabilities = capabilities,
+            })
+
             lspconfig.emmet_ls.setup({
                 capabilities = capabilities,
-                filetypes = { "html", "css", "elixir", "eelixir", "heex" },
+                filetypes = { "html", "css", "elixir", "eelixir", "heex", "php" },
             })
 
             lspconfig.tailwindcss.setup({

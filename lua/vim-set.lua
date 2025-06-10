@@ -15,9 +15,9 @@ vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
 vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 
 -- vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
--- vim.wo.number = true
 
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
+vim.opt.number = false;
 vim.opt.spelloptions = "camel"
 vim.opt.incsearch = true
 vim.opt.nu = true
@@ -52,8 +52,7 @@ vim.opt.expandtab = true          -- convert tabs to spaces
 vim.opt.shiftwidth = 4            -- the number of spaces inserted for each indentation
 vim.opt.tabstop = 4               -- insert 4 spaces for a tab
 vim.opt.cursorline = true         -- highlight the current line
-vim.opt.number = true             -- set numbered lines
-vim.opt.numberwidth = 4           -- set number column width to 2 {default 4}
+vim.opt.numberwidth = 2           -- set number column width to 2 {default 4}
 vim.opt.signcolumn = "yes"        -- always show the sign column, otherwise it would shift the text each time
 vim.opt.wrap = false              -- display lines as one long line
 vim.opt.scrolloff = 8             -- minimal number of screen lines to keep above and below the cursor.
@@ -63,6 +62,8 @@ vim.opt.ruler = false
 vim.opt.laststatus = 3
 vim.o.showtabline = 2
 vim.opt.sessionoptions = "curdir,folds,globals,help,tabpages,terminal,winsize"
+vim.opt.lazyredraw = true
+vim.opt.synmaxcol = 1000
 
 local function organize_imports()
     -- get current file extension
