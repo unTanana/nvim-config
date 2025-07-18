@@ -19,6 +19,8 @@ return {
 			sources = {
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.prettier,
+				null_ls.builtins.formatting.pint,
+				null_ls.builtins.diagnostics.phpstan,
 				cspell_diagnostics,
 				cspell.code_actions,
 				-- require("none-ls.diagnostics.eslint_d"),
