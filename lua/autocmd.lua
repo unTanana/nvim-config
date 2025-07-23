@@ -84,6 +84,19 @@ autocmd("BufEnter", {
 	end,
 })
 
+autocmd("BufEnter", {
+	group = LeGroup,
+	pattern = "*.php",
+	callback = function()
+		-- console log and error
+		vim.fn.setreg("l", 'yiwoLog::info("jkpa" . $jkpa);jk')
+		vim.fn.setreg("L", 'yoLog::info("jkpa" . $jkpa);jk')
+		vim.fn.setreg("k", 'yiwoLog::error("jkpa" . $jkpa);jk')
+		vim.fn.setreg("K", 'yoLog::error("jkpa" . $jkpa);jk')
+	end,
+})
+
+
 autocmd("TextYankPost", {
 	group = yank_group,
 	pattern = "*",
