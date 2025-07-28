@@ -166,7 +166,6 @@ vim.keymap.set("n", "<leader>cD", "@o")
 vim.keymap.set("n", "<leader>ce", "@k")
 vim.keymap.set("n", "<leader>v", "<CMD>vsplit<CR>")
 
-vim.keymap.set("n", "<leader>bd", "<CMD>BufferCloseAllButCurrentOrPinned<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 
 local function handleUrl()
