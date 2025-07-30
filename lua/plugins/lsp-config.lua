@@ -19,6 +19,19 @@ return {
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+			-- Function to read license key
+			local function read_intelephense_license()
+				local home = os.getenv("HOME")
+				local license_file = home .. "/intelephense/license.txt"
+				local file = io.open(license_file, "r")
+				if file then
+					local license = file:read("*line")
+					file:close()
+					return license and license:gsub("%s+", "") or nil -- trim whitespace
+				end
+				return nil
+			end
+
 			local lspconfig = require("lspconfig")
 			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
@@ -64,7 +77,7 @@ return {
 			lspconfig.intelephense.setup({
 				capabilities = capabilities,
 				init_options = {
-					licenceKey = "",
+					licenceKey = read_intelephense_license(),
 				},
 			})
 

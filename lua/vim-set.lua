@@ -9,10 +9,10 @@ vim.cmd([[
 ]])
 
 -- Navigate vim panes better
-vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
-vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
-vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
-vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
+vim.keymap.set("n", "<c-k>", ":wincmd k<CR>", {noremap = true, silent = true})
+vim.keymap.set("n", "<c-j>", ":wincmd j<CR>", {noremap = true, silent = true})
+vim.keymap.set("n", "<c-h>", ":wincmd h<CR>", {noremap = true, silent = true})
+vim.keymap.set("n", "<c-l>", ":wincmd l<CR>", {noremap = true, silent = true})
 
 -- vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
 
@@ -62,7 +62,6 @@ vim.opt.ruler = false
 vim.opt.laststatus = 3
 vim.o.showtabline = 2
 vim.opt.sessionoptions = "curdir,folds,globals,help,tabpages,terminal,winsize"
-vim.opt.lazyredraw = true
 vim.opt.synmaxcol = 1000
 
 local function organize_imports()
@@ -89,84 +88,84 @@ vim.g.mapleader = " "
 
 -- vim.keymap.set("n", "<leader>Lc", "<cmd>edit ~/.config/nvim/init.lua<CR>")
 
-vim.keymap.set("n", "<leader>co", organize_imports)
+vim.keymap.set("n", "<leader>co", organize_imports, {noremap = true, silent = true})
 
-vim.keymap.set("n", "<C-Tab>", "<C-^>")
-vim.keymap.set("n", "<C-s>", ":w<cr>")
-vim.keymap.set("i", "<C-s>", "<ESC>:w<cr>a")
-vim.keymap.set("n", "<S-CR>", "o<ESC>")
-vim.keymap.set("i", "<S-CR>", "<ESC>o")
-vim.keymap.set("v", "y", "ygv<ESC>") -- visual_mode yank -> moves cursor to end of yanked text and into normal mode
-vim.keymap.set("n", "N", "Nzz")
-vim.keymap.set("n", "n", "nzz")
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "n", "nzz")
-vim.keymap.set("i", "jk", "<ESC>")
-vim.keymap.set("n", "YY", "va{Vygv<ESC>")
-vim.keymap.set("n", "<leader>DD", 'vi{"_d')
-vim.keymap.set("n", "gI", ":vsplit | norm gi<CR>")
-vim.keymap.set("n", "gs", ":vsplit | norm gd<CR>")
+vim.keymap.set("n", "<C-Tab>", "<C-^>", {noremap = true, silent = true})
+vim.keymap.set("n", "<C-s>", ":w<cr>", {noremap = true, silent = true})
+vim.keymap.set("i", "<C-s>", "<ESC>:w<cr>a", {noremap = true, silent = true})
+vim.keymap.set("n", "<S-CR>", "o<ESC>", {noremap = true, silent = true})
+vim.keymap.set("i", "<S-CR>", "<ESC>o", {noremap = true, silent = true})
+vim.keymap.set("v", "y", "ygv<ESC>", {noremap = true, silent = true}) -- visual_mode yank -> moves cursor to end of yanked text and into normal mode
+vim.keymap.set("n", "N", "Nzz", {noremap = true, silent = true})
+vim.keymap.set("n", "n", "nzz", {noremap = true, silent = true})
+vim.keymap.set("n", "<C-d>", "<C-d>zz", {noremap = true, silent = true})
+vim.keymap.set("n", "<C-u>", "<C-u>zz", {noremap = true, silent = true})
+vim.keymap.set("n", "n", "nzz", {noremap = true, silent = true})
+vim.keymap.set("i", "jk", "<ESC>", {noremap = true, silent = true})
+vim.keymap.set("n", "YY", "va{Vygv<ESC>", {noremap = true, silent = true})
+vim.keymap.set("n", "<leader>DD", 'vi{"_d', {noremap = true, silent = true})
+vim.keymap.set("n", "gI", ":vsplit | norm gi<CR>", {noremap = true, silent = true})
+vim.keymap.set("n", "gs", ":vsplit | norm gd<CR>", {noremap = true, silent = true})
 
--- vim.keymap.set("n", "<leader>x", "<cmd>q<CR>")
-vim.keymap.set("n", "<leader>h", "<cmd>nohlsearch<CR>")
-vim.keymap.set("n", "<leader>X", "<cmd>wincmd x<CR>")
+-- vim.keymap.set("n", "<leader>x", "<cmd>q<CR>", {noremap = true, silent = true})
+vim.keymap.set("n", "<leader>h", "<cmd>nohlsearch<CR>", {noremap = true, silent = true})
+vim.keymap.set("n", "<leader>X", "<cmd>wincmd x<CR>", {noremap = true, silent = true})
 
 -- delete before paste
-vim.keymap.set("v", "<leader>p", '"_dP')
+vim.keymap.set("v", "<leader>p", '"_dP', {noremap = true, silent = true})
 -- delete to _ registry
-vim.keymap.set("v", "<leader>d", '"_d')
-vim.keymap.set("n", "<leader>d", '"_d')
-vim.keymap.set("n", "<leader>cp", '"0p')
-vim.keymap.set("n", "<leader>cP", '"0P')
-vim.keymap.set("v", "<leader>cp", '"0p')
-vim.keymap.set("v", "<leader>cP", '"0P')
+vim.keymap.set("v", "<leader>d", '"_d', {noremap = true, silent = true})
+vim.keymap.set("n", "<leader>d", '"_d', {noremap = true, silent = true})
+vim.keymap.set("n", "<leader>cp", '"0p', {noremap = true, silent = true})
+vim.keymap.set("n", "<leader>cP", '"0P', {noremap = true, silent = true})
+vim.keymap.set("v", "<leader>cp", '"0p', {noremap = true, silent = true})
+vim.keymap.set("v", "<leader>cP", '"0P', {noremap = true, silent = true})
 
 -- c* && c#
-vim.keymap.set("n", "c*", "*Ncgn")
-vim.keymap.set("n", "c#", "#NcgN")
+vim.keymap.set("n", "c*", "*Ncgn", {noremap = true, silent = true})
+vim.keymap.set("n", "c#", "#NcgN", {noremap = true, silent = true})
 
 -- gitk
-vim.keymap.set("n", "<leader>cg", ":!gitk %<CR>")
+vim.keymap.set("n", "<leader>cg", ":!gitk %<CR>", {noremap = true, silent = true})
 
 -- Resize with arrows
-vim.keymap.set("n", "<A-Up>", ":resize -2<CR>")
-vim.keymap.set("n", "<A-Down>", ":resize +2<CR>")
-vim.keymap.set("n", "<A-Left>", ":vertical resize -2<CR>")
-vim.keymap.set("n", "<A-Right>", ":vertical resize +2<CR>")
+vim.keymap.set("n", "<A-Up>", ":resize -2<CR>", {noremap = true, silent = true})
+vim.keymap.set("n", "<A-Down>", ":resize +2<CR>", {noremap = true, silent = true})
+vim.keymap.set("n", "<A-Left>", ":vertical resize -2<CR>", {noremap = true, silent = true})
+vim.keymap.set("n", "<A-Right>", ":vertical resize +2<CR>", {noremap = true, silent = true})
 
 -- QuickFix
-vim.keymap.set("n", "]q", ":cnext<CR>")
-vim.keymap.set("n", "[q", ":cprev<CR>")
-vim.keymap.set("n", "<C-q>", ":call QuickFixToggle()<CR>")
+vim.keymap.set("n", "]q", ":cnext<CR>", {noremap = true, silent = true})
+vim.keymap.set("n", "[q", ":cprev<CR>", {noremap = true, silent = true})
+vim.keymap.set("n", "<C-q>", ":call QuickFixToggle()<CR>", {noremap = true, silent = true})
 
 -- -- Terminal window navigation
--- vim.keymap.set("t", "<C-h>", "<C-\\><C-N><C-w>h");
--- vim.keymap.set("t", "<C-j>", "<C-\\><C-N><C-w>j");
--- vim.keymap.set("t", "<C-k>", "<C-\\><C-N><C-w>k");
--- vim.keymap.set("t", "<C-l>", "<C-\\><C-N><C-w>l");
+-- vim.keymap.set("t", "<C-h>", "<C-\\><C-N><C-w>h", {noremap = true, silent = true});
+-- vim.keymap.set("t", "<C-j>", "<C-\\><C-N><C-w>j", {noremap = true, silent = true});
+-- vim.keymap.set("t", "<C-k>", "<C-\\><C-N><C-w>k", {noremap = true, silent = true});
+-- vim.keymap.set("t", "<C-l>", "<C-\\><C-N><C-w>l", {noremap = true, silent = true});
 
 -- Better indenting
-vim.keymap.set("v", "<", "<gv")
-vim.keymap.set("v", ">", ">gv")
+vim.keymap.set("v", "<", "<gv", {noremap = true, silent = true})
+vim.keymap.set("v", ">", ">gv", {noremap = true, silent = true})
 
 -- Move current line / block with Alt-j/k ala vscode.
-vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { silent = true })
-vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { silent = true })
-vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv-gv", { silent = true })
-vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv-gv", { silent = true })
-vim.keymap.set("i", "<A-j>", "<Esc>:m .+1<CR>==gi", { silent = true })
-vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi", { silent = true })
+vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { silent = true }, {noremap = true, silent = true})
+vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { silent = true }, {noremap = true, silent = true})
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv-gv", { silent = true }, {noremap = true, silent = true})
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv-gv", { silent = true }, {noremap = true, silent = true})
+vim.keymap.set("i", "<A-j>", "<Esc>:m .+1<CR>==gi", { silent = true }, {noremap = true, silent = true})
+vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi", { silent = true }, {noremap = true, silent = true})
 
 -- copy pasting + use console logs / errors
-vim.keymap.set("n", "<leader>p", '"0p')
-vim.keymap.set("n", "<leader>P>", '"0P')
-vim.keymap.set("n", "<leader>cl", "@l")
-vim.keymap.set("n", "<leader>cD", "@o")
-vim.keymap.set("n", "<leader>ce", "@k")
-vim.keymap.set("n", "<leader>v", "<CMD>vsplit<CR>")
+vim.keymap.set("n", "<leader>p", '"0p', {noremap = true, silent = true})
+vim.keymap.set("n", "<leader>P>", '"0P', {noremap = true, silent = true})
+vim.keymap.set("n", "<leader>cl", "@l", {noremap = true, silent = true})
+vim.keymap.set("n", "<leader>cD", "@o", {noremap = true, silent = true})
+vim.keymap.set("n", "<leader>ce", "@k", {noremap = true, silent = true})
+vim.keymap.set("n", "<leader>v", "<CMD>vsplit<CR>", {noremap = true, silent = true})
 
-vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
+vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", {noremap = true, silent = true})
 
 local function handleUrl()
 	local line = vim.api.nvim_get_current_line()
@@ -186,4 +185,4 @@ local function handleUrl()
 end
 
 -- Create a normal mode mapping
-vim.keymap.set("n", "gx", handleUrl, { noremap = true, silent = true })
+vim.keymap.set("n", "gx", handleUrl, { noremap = true, silent = true }, {noremap = true, silent = true})
