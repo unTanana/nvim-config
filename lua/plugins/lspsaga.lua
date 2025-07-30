@@ -38,13 +38,13 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "K", ":Lspsaga hover_doc<CR>")
-		vim.keymap.set("n", "gd", ":Lspsaga goto_definition<CR>")
+		vim.keymap.set("n", "K", ":Lspsaga hover_doc<CR>", { noremap = true, silent = true })
+		vim.keymap.set("n", "gd", ":Lspsaga goto_definition<CR>", { noremap = true, silent = true })
 
-		vim.keymap.set("n", "<leader>cr", "<cmd>Lspsaga rename<CR>")
-		vim.keymap.set("n", "<leader>cd", "<cmd>Lspsaga peek_definition<CR>")
-		vim.keymap.set("n", "<leader>cf", "<cmd>Lspsaga finder<CR>")
-		-- vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>")
-		vim.keymap.set("n", "<leader>ct", "<cmd>Lspsaga goto_type_definition<CR>")
+		vim.keymap.set("n", "<leader>cr", "<cmd>Lspsaga rename<CR>", { noremap = true, silent = true })
+		vim.keymap.set("n", "<leader>cd", "<cmd>Lspsaga peek_definition<CR>", { noremap = true, silent = true })
+		vim.keymap.set("n", "<leader>cf", "<cmd>Lspsaga finder<CR>", { noremap = true, silent = true })
+		-- vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", {noremap = true, silent = true})
+		vim.keymap.set("n", "<leader>ct", "<cmd>Lspsaga goto_type_definition<CR>", { noremap = true, silent = true })
 	end,
 }

@@ -15,32 +15,79 @@ return {
 			end,
 		})
 
+		-- Function to check if ESLint config exists
+		local function has_eslint_config()
+			local config_files = {
+				".eslintrc.js",
+				".eslintrc.cjs",
+				".eslintrc.yaml",
+				".eslintrc.yml",
+				".eslintrc.json",
+				".eslintrc",
+				"eslint.config.js",
+				"eslint.config.mjs",
+				"eslint.config.cjs",
+			}
+
+			for _, config_file in ipairs(config_files) do
+				if vim.fn.filereadable(config_file) == 1 then
+					return true
+				end
+			end
+
+			-- Check package.json for eslintConfig
+			-- Check if package.json exists first
+			if vim.fn.filereadable("package.json") == 1 then
+				local package_json = vim.fn.json_decode(vim.fn.readfile("package.json"))
+				if package_json and package_json.eslintConfig then
+					return true
+				end
+			end
+
+			return false
+		end
+
+		local sources = {
+			null_ls.builtins.formatting.stylua,
+			null_ls.builtins.formatting.pint,
+			null_ls.builtins.diagnostics.phpstan,
+			cspell_diagnostics,
+			cspell.code_actions,
+		}
+
+		-- Add ESLint or Prettier based on project configuration
+		if has_eslint_config() then
+			table.insert(sources, require("none-ls.diagnostics.eslint_d"))
+			table.insert(sources, require("none-ls.code_actions.eslint_d"))
+			table.insert(sources, require("none-ls.formatting.eslint_d"))
+		else
+			table.insert(sources, null_ls.builtins.formatting.prettier)
+		end
+
+		-- Add phpstan with custom configuration
+		table.insert(
+			sources,
+			null_ls.builtins.diagnostics.phpstan.with({
+				command = "/Users/cipriantanana/.local/share/nvim/mason/bin/phpstan",
+				args = { "analyse", "--error-format", "raw", "--no-progress", "$FILENAME" },
+			})
+		)
+
 		null_ls.setup({
-			sources = {
-				null_ls.builtins.formatting.stylua,
-				null_ls.builtins.formatting.prettier,
-				null_ls.builtins.formatting.pint,
-				null_ls.builtins.diagnostics.phpstan.with({
-					command = "/Users/cipriantanana/.local/share/nvim/mason/bin/phpstan",
-					args = { "analyse", "--error-format", "raw", "--no-progress", "$FILENAME" },
-				}),
-				cspell_diagnostics,
-				cspell.code_actions,
-				-- require("none-ls.diagnostics.eslint_d"),
-			},
+			sources = sources,
 		})
 
-		vim.keymap.set("n", "<leader>lf", require("format-helpers").do_format, {})
-		vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-		vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {})
-		vim.keymap.set("n", "gr", vim.lsp.buf.references, {})
-		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
-		vim.keymap.set("n", "gl", vim.diagnostic.open_float, {})
+		vim.keymap.set("n", "<leader>lf", require("format-helpers").do_format, { noremap = true, silent = true })
+		-- vim.keymap.set("n", "K", vim.lsp.buf.hover, {silent = true})
+		-- vim.keymap.set("n", "gd", vim.lsp.buf.definition, {noremap = true, silent = true})
+		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true, silent = true })
+		vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true, silent = true })
+		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { noremap = true, silent = true })
+		vim.keymap.set("n", "gl", vim.diagnostic.open_float, { noremap = true, silent = true })
 
-		vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-		vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {})
-		vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {})
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true, silent = true })
+		vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { noremap = true, silent = true })
+		vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { noremap = true, silent = true })
 		-- Go to next error
 		vim.keymap.set("n", "]e", function()
 			vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
