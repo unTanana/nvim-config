@@ -169,7 +169,7 @@ return {
 					error = "E",
 				},
 				sources = cmp.config.sources({
-                    { name = "supermaven" },
+                    { name = 'laravel' },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" }, -- For luasnip users.
 				}, {
@@ -178,7 +178,6 @@ return {
 				formatting = {
 					format = require("lspkind").cmp_format({
 						before = require("tailwind-tools.cmp").lspkind_format,
-                        symbol_map = { Supermaven = "" }
 					}),
 				},
 			})

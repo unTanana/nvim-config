@@ -39,7 +39,7 @@ return {
 		})
 
 		vim.keymap.set("n", "K", ":Lspsaga hover_doc<CR>", { noremap = true, silent = true })
-		vim.keymap.set("n", "gd", ":Lspsaga goto_definition<CR>", { noremap = true, silent = true })
+		-- vim.keymap.set("n", "gd", ":Lspsaga goto_definition<CR>", { noremap = true, silent = true })
 
 		vim.keymap.set("n", "<leader>cr", "<cmd>Lspsaga rename<CR>", { noremap = true, silent = true })
 		vim.keymap.set("n", "<leader>cd", "<cmd>Lspsaga peek_definition<CR>", { noremap = true, silent = true })

@@ -79,7 +79,6 @@ return {
 
 		vim.keymap.set("n", "<leader>lf", require("format-helpers").do_format, { noremap = true, silent = true })
 		-- vim.keymap.set("n", "K", vim.lsp.buf.hover, {silent = true})
-		-- vim.keymap.set("n", "gd", vim.lsp.buf.definition, {noremap = true, silent = true})
 		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true, silent = true })
 		vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true, silent = true })
 		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { noremap = true, silent = true })
@@ -88,6 +87,7 @@ return {
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true, silent = true })
 		vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { noremap = true, silent = true })
 		vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { noremap = true, silent = true })
+
 		-- Go to next error
 		vim.keymap.set("n", "]e", function()
 			vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
