@@ -166,6 +166,7 @@ vim.keymap.set("n", "<leader>ce", "@k", {noremap = true, silent = true})
 vim.keymap.set("n", "<leader>v", "<CMD>vsplit<CR>", {noremap = true, silent = true})
 
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", {noremap = true, silent = true})
+vim.keymap.set("n", "<leader>ll", ":LaravelLog<CR>", { noremap = true, silent = true })
 
 local function handleUrl()
 	local line = vim.api.nvim_get_current_line()

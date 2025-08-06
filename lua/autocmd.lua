@@ -236,6 +236,28 @@ end
 
 vim.api.nvim_create_user_command("ToggleFormatOnSave", toggle_format_on_save, {})
 
+vim.api.nvim_create_user_command("LaravelLog", function()
+  local root = vim.fn.getcwd()
+  local candidates = {
+    root .. "/storage/logs/laravel.log",
+    root .. "/storage/logs/" .. os.date("%Y-%m-%d") .. ".log",
+  }
+  local log = nil
+  for _, p in ipairs(candidates) do
+    if vim.fn.filereadable(p) == 1 then
+      log = p
+      break
+    end
+  end
+  if not log then
+    vim.notify("Laravel log not found", vim.log.levels.WARN)
+    return
+  end
+  vim.cmd("vsplit " .. vim.fn.fnameescape(log))
+  vim.cmd("setlocal buftype=")
+  vim.cmd("normal! G")
+end, { desc = "Open Laravel log in vertical split" })
+
 vim.api.nvim_create_autocmd("VimEnter", {
 	pattern = "*",
 	command = "set nonumber norelativenumber",
