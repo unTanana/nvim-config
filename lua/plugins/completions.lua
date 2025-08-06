@@ -16,6 +16,7 @@ return {
 			"onsails/lspkind-nvim",
 		},
 		config = function()
+            require('cmp-laravel-routes').setup()
 			local cmp = require("cmp")
 			require("luasnip.loaders.from_vscode").lazy_load()
 			require("tailwind-tools").setup({})
@@ -169,7 +170,7 @@ return {
 					error = "E",
 				},
 				sources = cmp.config.sources({
-                    { name = 'laravel' },
+                    { name = 'laravel_routes' },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" }, -- For luasnip users.
 				}, {
