@@ -29,6 +29,9 @@ local function find_root(start)
   return nil
 end
 
+-- Export find_root for use by other Laravel plugins
+M.find_root = find_root
+
 -- decode artisan --json and extract unique, sorted route names
 local function parse_routes(json)
   local ok, decoded = pcall(vim.json.decode, json)

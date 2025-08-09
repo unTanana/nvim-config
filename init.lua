@@ -14,3 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 require("vim-set")
 require("autocmd")
 require("lazy").setup("plugins")
+
+-- Setup Laravel goto definition functionality
+require("laravel-goto").setup()
