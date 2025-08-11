@@ -15,5 +15,5 @@ require("vim-set")
 require("autocmd")
 require("lazy").setup("plugins")
 
--- Setup Laravel goto definition functionality
+-- setup Laravel Plugins
 require("laravel-goto").setup()
