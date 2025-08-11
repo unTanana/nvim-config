@@ -1,9 +1,11 @@
 local M = {}
 
--- in-memory cache of last fetched route names
+-- in-memory cache of last fetched route names and inertia pages
 local cache = {
 	routes = nil, -- array of strings
+	inertia_pages = nil, -- array of strings
 	ts = 0, -- monotonic timestamp of last fetch
+	inertia_ts = 0, -- timestamp of last inertia pages fetch
 	root = nil, -- project root containing artisan
 }
 
@@ -54,6 +56,99 @@ local function parse_routes(json)
 	end
 	table.sort(list)
 	return list
+end
+
+-- scan for Inertia page files and convert to page names
+local function scan_inertia_pages(root)
+	if not root then
+		return {}
+	end
+
+	local pages = {}
+	-- Try both common directory structures
+	local pages_dirs = {
+		root .. "/resources/js/Pages", -- Laravel standard (capital P)
+		root .. "/resources/js/pages", -- lowercase variant
+	}
+
+	local pages_dir = nil
+	for _, dir in ipairs(pages_dirs) do
+		if vim.fn.isdirectory(dir) == 1 then
+			pages_dir = dir
+			break
+		end
+	end
+
+	-- check if pages directory exists
+	if not pages_dir then
+		return {}
+	end
+
+	-- recursively find all .vue, .jsx, .tsx files
+	local function scan_dir(dir, prefix)
+		prefix = prefix or ""
+		local handle = vim.loop.fs_scandir(dir)
+		if not handle then
+			return
+		end
+
+		while true do
+			local name, type = vim.loop.fs_scandir_next(handle)
+			if not name then
+				break
+			end
+
+			local full_path = dir .. "/" .. name
+			if type == "directory" then
+				local new_prefix = prefix == "" and name or prefix .. "/" .. name
+				scan_dir(full_path, new_prefix)
+			elseif
+				type == "file"
+				and (
+					name:match("%.vue$")
+					or name:match("%.jsx$")
+					or name:match("%.tsx$")
+					or name:match("%.js$")
+					or name:match("%.ts$")
+				)
+			then
+				-- remove file extension
+				local page_name = name:gsub("%.[^.]+$", "")
+				-- create full page path
+				local full_name = prefix == "" and page_name or prefix .. "/" .. page_name
+
+				table.insert(pages, {
+					original = full_name,
+				})
+			end
+		end
+	end
+
+	scan_dir(pages_dir)
+
+	-- sort by original name
+	table.sort(pages, function(a, b)
+		return a.original < b.original
+	end)
+
+	return pages
+end
+
+-- get cached inertia pages, refresh if stale or not yet fetched
+local function get_inertia_pages(cb)
+	if cache.inertia_pages and (vim.loop.now() - cache.inertia_ts) < 60000 then
+		return cb(cache.inertia_pages)
+	end
+	local root = find_root()
+	if not root then
+		return cb({})
+	end
+
+	local pages = scan_inertia_pages(root)
+	cache.inertia_pages = pages
+	cache.inertia_ts = vim.loop.now()
+	cache.root = root
+	cb(pages)
 end
 
 -- run `php artisan route:list --json` asynchronously and refresh cache
@@ -115,6 +210,7 @@ local function get_route_context()
 		{ pattern = "route%s*%(%s*['\"]([%w%._-]*)", func = "route" },
 		{ pattern = "url%(%)->route%s*%(%s*['\"]([%w%._-]*)", func = "route" },
 		{ pattern = "action%s*%(%s*['\"]([%w%._-]*)", func = "action" },
+		{ pattern = "Inertia::render%s*%(%s*['\"]([%w%._/-]*)", func = "inertia" },
 	}
 
 	-- check for complete function calls first
@@ -178,21 +274,41 @@ function source:complete(params, callback)
 		return
 	end
 
-	get_routes(function(routes)
-		local items = {}
-		for _, name in ipairs(routes or {}) do
-			-- filter routes based on partial match
-			if context.partial == "" or name:find(context.partial, 1, true) then
-				table.insert(items, {
-					label = name,
-					insertText = name,
-					kind = require("cmp").lsp.CompletionItemKind.Value,
-					detail = "Laravel " .. context.func .. "()",
-				})
+	if context.func == "inertia" then
+		-- provide Inertia page completions
+		get_inertia_pages(function(pages)
+			local items = {}
+			for _, page in ipairs(pages or {}) do
+				-- filter pages based on partial match
+				if context.partial == "" or page.original:find(context.partial, 1, true) then
+					table.insert(items, {
+						label = page.original,
+						insertText = page.original,
+						kind = require("cmp").lsp.CompletionItemKind.File,
+						detail = "Inertia page",
+					})
+				end
 			end
-		end
-		callback({ items = items, isIncomplete = true })
-	end)
+			callback({ items = items, isIncomplete = true })
+		end)
+	else
+		-- provide route completions
+		get_routes(function(routes)
+			local items = {}
+			for _, name in ipairs(routes or {}) do
+				-- filter routes based on partial match
+				if context.partial == "" or name:find(context.partial, 1, true) then
+					table.insert(items, {
+						label = name,
+						insertText = name,
+						kind = require("cmp").lsp.CompletionItemKind.Value,
+						detail = "Laravel " .. context.func .. "()",
+					})
+				end
+			end
+			callback({ items = items, isIncomplete = true })
+		end)
+	end
 end
 
 -- register source and auto-refresh when route files change
@@ -205,6 +321,25 @@ M.setup = function()
 			local root = find_root()
 			if root then
 				fetch_routes(root, function() end)
+			end
+		end,
+	})
+
+	-- auto-refresh Inertia pages when files change
+	vim.api.nvim_create_autocmd({ "BufWritePost", "BufNewFile", "BufDelete" }, {
+		pattern = {
+			"resources/js/Pages/**/*.vue",
+			"resources/js/Pages/**/*.jsx",
+			"resources/js/Pages/**/*.tsx",
+			"resources/js/pages/**/*.vue",
+			"resources/js/pages/**/*.jsx",
+			"resources/js/pages/**/*.tsx",
+		},
+		callback = function()
+			local root = find_root()
+			if root then
+				cache.inertia_pages = nil
+				cache.inertia_ts = 0
 			end
 		end,
 	})
