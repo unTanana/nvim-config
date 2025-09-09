@@ -47,6 +47,40 @@ return {
 			return false
 		end
 
+		-- Function to check if Prettier config exists
+		local function has_prettier_config()
+			local config_files = {
+				".prettierrc",
+				".prettierrc.json",
+				".prettierrc.yml",
+				".prettierrc.yaml",
+				".prettierrc.json5",
+				".prettierrc.js",
+				".prettierrc.cjs",
+				".prettierrc.mjs",
+				".prettierrc.toml",
+				"prettier.config.js",
+				"prettier.config.cjs",
+				"prettier.config.mjs",
+			}
+
+			for _, config_file in ipairs(config_files) do
+				if vim.fn.filereadable(config_file) == 1 then
+					return true
+				end
+			end
+
+			-- Check package.json for prettier config
+			if vim.fn.filereadable("package.json") == 1 then
+				local package_json = vim.fn.json_decode(vim.fn.readfile("package.json"))
+				if package_json and package_json.prettier then
+					return true
+				end
+			end
+
+			return false
+		end
+
 		local sources = {
 			null_ls.builtins.formatting.stylua,
 			null_ls.builtins.formatting.pint,
@@ -56,13 +90,36 @@ return {
 			cspell.code_actions,
 		}
 
-		-- Add ESLint or Prettier based on project configuration
+		-- Add ESLint diagnostics if config exists
 		if has_eslint_config() then
 			table.insert(sources, require("none-ls.diagnostics.eslint_d"))
 			table.insert(sources, require("none-ls.code_actions.eslint_d"))
+		end
+
+		-- Use Prettier for formatting if available, otherwise use ESLint
+		if has_prettier_config() then
+			table.insert(sources, null_ls.builtins.formatting.prettier.with({
+				filetypes = {
+					"javascript",
+					"javascriptreact",
+					"typescript",
+					"typescriptreact",
+					"vue",
+					"css",
+					"scss",
+					"less",
+					"html",
+					"json",
+					"jsonc",
+					"yaml",
+					"markdown",
+					"markdown.mdx",
+					"graphql",
+					"handlebars",
+				},
+			}))
+		elseif has_eslint_config() then
 			table.insert(sources, require("none-ls.formatting.eslint_d"))
-		else
-			table.insert(sources, null_ls.builtins.formatting.prettier)
 		end
 
 		-- Add phpstan with custom configuration

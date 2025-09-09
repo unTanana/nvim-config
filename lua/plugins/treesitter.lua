@@ -7,7 +7,7 @@ return {
             config.setup({
                 auto_install = true,
                 indent = { enable = true },
-                ensure_installed = { "c", "javascript", "typescript", "lua", "vim", "vimdoc", "query", "rust", "tsx", },
+                ensure_installed = { "c", "javascript", "typescript", "lua", "vim", "vimdoc", "query", "rust", "tsx", "vue", },
                 sync_install = false,
                 highlight = {
                     enable = true,

@@ -98,7 +98,17 @@ local function do_format()
 
     -- local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
     -- vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
-    vim.lsp.buf.format()
+    
+    -- Use filter to control which formatter runs
+    -- This prevents double formatting when both prettier and eslint are available
+    vim.lsp.buf.format({
+        async = false,
+        filter = function(client)
+            -- Only allow null-ls to format
+            -- null-ls will internally handle which formatter to use based on what we registered
+            return client.name == "null-ls"
+        end
+    })
 
     -- no need to restore marks that still exist
     -- for _, m in pairs(vim.fn.getmarklist(bufnr or vim.api.nvim_get_current_buf())) do
